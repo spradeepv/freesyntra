@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="logo/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="logo/png/freesyntra-app-icon-192.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -178,6 +180,39 @@ a.tile:hover img { transform: translateY(-4px) rotate(-2deg); }
 .info dd { margin: 6px 0 0; font-family: var(--font-display); font-size: 20px; overflow-wrap: anywhere; }
 .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 
+/* OmniSpend illustrated screen (the app's own light palette) */
+.os-screen { background: #F6F6FC; color: #1C1E30; padding: 0 12px; gap: 10px; font-size: 12px; }
+.os-top { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 4px 2px; }
+.os-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; }
+.os-month { color: #5E6180; font-weight: 600; }
+.os-hero { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 14px; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #3D5AFE, #8E44FF 60%, #FF4D8D); }
+.os-hero small { display: block; font-size: 10.5px; opacity: 0.9; }
+.os-hero strong { display: block; font-family: var(--font-num); font-size: 21px; margin: 2px 0; }
+.os-delta { font-size: 10px; background: rgba(255,255,255,0.22); padding: 2px 7px; border-radius: 999px; }
+.os-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.os-tiles div, .os-card { background: #FFFFFF; border-radius: 14px; padding: 9px 10px; }
+.os-tiles small, .os-card small { display: block; font-size: 10px; color: #5E6180; }
+.os-tiles b { font-family: var(--font-num); font-size: 13px; }
+.os-bars { display: flex; align-items: flex-end; gap: 6px; height: 64px; margin-top: 6px; }
+.os-bars i { flex: 1; border-radius: 5px 5px 2px 2px; background: #C7CFFF; }
+.os-bars i.peak { background: linear-gradient(#FF8A00, #FF4D8D); }
+.os-strip { display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-top: 7px; gap: 2px; }
+.os-legend { display: flex; gap: 10px; margin-top: 7px; font-size: 10px; color: #5E6180; }
+.os-legend i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
+.app-hero .icon { border-radius: 23%; box-shadow: 0 0 0 2px rgba(255,255,255,0.45), 0 14px 30px -12px rgba(0,0,0,0.5); }
+.os-row { display: flex; align-items: center; gap: 8px; background: #FFFFFF; border-radius: 12px; padding: 8px 10px; }
+.os-row .e { width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 11px; flex: none; }
+.os-row span { flex: 1; min-width: 0; }
+.os-row b { font-family: var(--font-num); font-size: 11.5px; }
+.app-hero .caption.app-cap { color: var(--app-muted, var(--muted)); }
+
+/* OmniSpend reports */
+.reports { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.report { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.report .fmt { justify-self: start; color: #fff; font: 700 13px var(--font-num); letter-spacing: 0.06em; padding: 6px 10px; border-radius: 8px; }
+.report h3 { font-size: 24px; }
+.report ul { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+
 /* Phone mock */
 .phone-stage { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .phone { width: min(300px, 100%); aspect-ratio: 9 / 18.5; border-radius: 40px; padding: 10px; background: linear-gradient(145deg, #2B3242, #0E121C 60%, #3A4356); box-shadow: 0 30px 60px -30px rgba(18, 24, 38, 0.55); }
@@ -251,7 +286,7 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
   .featured { padding: 28px; }
 }
 @media (max-width: 600px) {
-  .features { grid-template-columns: minmax(0, 1fr); }
+  .features, .reports { grid-template-columns: minmax(0, 1fr); }
   .brand svg { height: 28px; }
   nav a { padding: 0 10px; }
   .modes button { font-size: 13px; }
@@ -404,7 +439,7 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
           <p class="eyebrow">About FreeSyntra</p>
           <h1>Useful apps, free for everyone.</h1>
           <p>FreeSyntra is an independent maker of Android apps, based in India. Each app does one job well, and every one of them is free to download from Google Play.</p>
-          <p>OmniSplit, for splitting shared expenses, is the first. New apps are added to the Apps page as they launch.</p>
+          <p>Our first apps are OmniSplit, for splitting shared expenses, and OmniSpend, for tracking your own spending. New apps are added to the Apps page as they launch.</p>
           <div class="actions" style="margin-top: 8px"><a class="btn primary" href="#apps">Browse apps</a></div>
         </div>
       </div>
@@ -443,6 +478,78 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
   <li><img src="images/omnisplit-shot-4.webp" alt="Settle up the smart way: suggested payments with one-tap settle" width="540" height="960" loading="lazy"></li>
   <li><img src="images/omnisplit-shot-5.webp" alt="Add anyone, even without an account: guests link up when they join" width="540" height="960" loading="lazy"></li>
   <li><img src="images/omnisplit-shot-6.webp" alt="Sign in your way: Google or email, securely verified" width="540" height="960" loading="lazy"></li>
+</template>
+
+<template id="icon-omnispend"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" aria-hidden="true" focusable="false"><defs><linearGradient id="osGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3D5AFE"/><stop offset="0.55" stop-color="#8E44FF"/><stop offset="1" stop-color="#FF4D8D"/></linearGradient></defs><rect width="108" height="108" rx="25" fill="url(#osGrad)"/><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M54 29A25 25 0 0 1 78.6 49.6" stroke="#FFFFFF" stroke-width="6"/><path d="M77.5 62.5A25 25 0 0 1 40 74.7" stroke="#FFD54F" stroke-width="6"/><path d="M32.6 66.5A25 25 0 0 1 45.5 30.5" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="6"/><path d="M46 42H62M46 48H62M49 42C58 42 58 54 49 54H46L59 67" stroke="#FFFFFF" stroke-width="3.6"/></g></svg></template>
+
+<template id="screen-omnispend">
+  <div class="phone-stage">
+    <div class="phone" role="img" aria-label="Illustration of the OmniSpend home screen: this month's total, a budget ring, spending tiles and a 7-day chart">
+      <div class="screen os-screen">
+        <div class="os-top"><span class="os-title">OmniSpend</span><span class="os-month">November</span></div>
+        <div class="os-hero">
+          <div>
+            <small>Spent this month</small>
+            <strong>₹18,240.00</strong>
+            <span class="os-delta">12% less than this point last month</span>
+          </div>
+          <svg viewBox="0 0 44 44" width="64" height="64" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="5"/><circle cx="22" cy="22" r="18" fill="none" stroke="#FFD54F" stroke-width="5" stroke-linecap="round" stroke-dasharray="69 113" transform="rotate(-90 22 22)"/><text x="22" y="25.5" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">61%</text></svg>
+        </div>
+        <div class="os-tiles">
+          <div><small>Today</small><b>₹420</b></div>
+          <div><small>This week</small><b>₹3,180</b></div>
+          <div><small>Daily avg</small><b>₹2,280</b></div>
+        </div>
+        <div class="os-card">
+          <small>Last 7 days</small>
+          <div class="os-bars"><i style="height:40%"></i><i style="height:62%"></i><i style="height:28%"></i><i class="peak" style="height:100%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:34%"></i></div>
+        </div>
+        <div class="os-card">
+          <small>By category</small>
+          <div class="os-strip"><i style="flex:34;background:#FF8A00"></i><i style="flex:22;background:#3D5AFE"></i><i style="flex:18;background:#00C9A7"></i><i style="flex:14;background:#FF4D8D"></i><i style="flex:12;background:#8E44FF"></i></div>
+          <div class="os-legend"><span><i style="background:#FF8A00"></i>Food</span><span><i style="background:#3D5AFE"></i>Travel</span><span><i style="background:#00C9A7"></i>Bills</span></div>
+        </div>
+        <div class="os-row"><div class="e" style="background:#FF8A00">F</div><span>Lunch · Today</span><b>₹340</b></div>
+        <div class="os-row"><div class="e" style="background:#3D5AFE">T</div><span>Metro card · Today</span><b>₹80</b></div>
+        <div class="os-row"><div class="e" style="background:#00C9A7">B</div><span>Electricity · Yesterday</span><b>₹1,460</b></div>
+      </div>
+    </div>
+    <p class="caption app-cap">Illustration with example data</p>
+  </div>
+</template>
+
+<template id="extra-omnispend">
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Reports</p>
+        <h2>Reports you can share.</h2>
+        <p>Choose this month, last month, the last 3, 6 or 12 months, or your own dates. Pick the categories, then export.</p>
+      </div>
+      <div class="reports">
+        <article class="report">
+          <span class="fmt" style="background:#E5484D">PDF</span>
+          <h3>PDF report</h3>
+          <ul>
+            <li>Summary tiles and a category donut</li>
+            <li>Monthly or daily bar chart</li>
+            <li>The most expensive day in each month</li>
+            <li>Every transaction, with page numbers</li>
+          </ul>
+        </article>
+        <article class="report">
+          <span class="fmt" style="background:#1D7A45">XLS</span>
+          <h3>Excel workbook</h3>
+          <ul>
+            <li>Summary and By Category sheets</li>
+            <li>Monthly sheet with each month's peak day</li>
+            <li>Daily sheet with the peak highlighted</li>
+            <li>All transactions, with live SUM totals</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 </template>
 
 <template id="extra-omnisplit">
@@ -486,7 +593,14 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
     handshake: '<path d="M4 12h16M14 6l6 6-6 6"/><circle cx="6" cy="12" r="2"/>',
     userplus: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/>',
     shield: '<path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
-    sync: '<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M4 4v4h4M20 20v-4h-4"/>'
+    sync: '<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M4 4v4h4M20 20v-4h-4"/>',
+    plus: '<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',
+    tag: '<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="8" cy="8" r="1.5"/>',
+    home: '<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/>',
+    chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    phone: '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
+    cloud: '<path d="M7 18a5 5 0 0 1-.6-9.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/>'
   };
 
   /* ===== The app list. Add new apps here. =====
@@ -521,6 +635,37 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
         { icon: "file", title: "Export to CSV", text: "Download a group's expenses, settlements and balances as a CSV file, or share them as text." },
         { icon: "lock", title: "Sign in your way", text: "Use your Google account, or an email and password. Email sign-ups are verified before they can log in." },
         { icon: "shield", title: "Private by design", text: "No ads, and your data is never sold. Only you and the people in your groups can see your expenses." }
+      ]
+    },
+    {
+      id: "omnispend",
+      name: "OmniSpend",
+      category: "Finance",
+      tagline: "Track your spending",
+      slogan: "Know where your money goes.",
+      summary: "A colourful expense tracker with charts, budgets, and PDF and Excel reports.",
+      description: "Log an expense in a couple of taps, then see where your money went with charts for every day, week and month. Your data is saved on your phone and can sync to your account.",
+      status: "soon",
+      playUrl: "https://play.google.com/store/apps/details?id=com.freesyntra.omnispend",
+      added: "2026-11-09",
+      tags: ["Charts & insights", "PDF + Excel reports", "Works offline"],
+      theme: {
+        bg: "radial-gradient(110% 90% at 100% 0%, #C9306F 0%, rgba(201,48,111,0) 55%), linear-gradient(135deg, #2238D0 0%, #5B26C9 60%, #3A1A8F 100%)",
+        fg: "#FFFFFF", muted: "#E4DEFF", accent: "#FFD54F", button: "linear-gradient(90deg, #FF8A00, #FF4D8D)"
+      },
+      info: [["Version", "1.0.0"], ["Requires", "Android 8.0+"], ["Price", "Free"], ["Category", "Finance"]],
+      links: [["Privacy policy", "omnispend/privacy-policy.html"], ["Delete your account", "omnispend/delete-account.html"]],
+      featuresTitle: "See every rupee, clearly.",
+      features: [
+        { icon: "plus", title: "Add in seconds", text: "A big ₹ amount field, category chips, Today or Yesterday, and a note. Tap any entry to edit it, or delete it with Undo." },
+        { icon: "tag", title: "Your own categories", text: "Start with 12 categories, or make your own with a name, emoji and colour, right from the add screen." },
+        { icon: "currency", title: "Made for rupees", text: "Amounts are exact to the paisa and shown the Indian way: ₹1,23,456.00, ₹3.2L or ₹1.1Cr." },
+        { icon: "home", title: "Home at a glance", text: "This month's total compared with the same point last month, an optional budget ring, and today, week and daily-average tiles." },
+        { icon: "chart", title: "Charts that explain", text: "A category donut, daily bars with your most expensive day highlighted, a spending calendar, weekday averages and 12-month trends." },
+        { icon: "file", title: "PDF and Excel reports", text: "Pick a period and categories, then export a PDF or Excel file to your phone's Downloads and share it." },
+        { icon: "calendar", title: "A full year of history", text: "History, insights and reports cover this month and the 11 months before it." },
+        { icon: "phone", title: "Works offline", text: "Your expenses are saved on your device, so the app keeps working without an internet connection." },
+        { icon: "cloud", title: "Your account, synced", text: "Sign in with Google or with email and a password. Sync when you choose, or turn on auto-sync after each change and daily." }
       ]
     }
   ];
@@ -586,7 +731,7 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
     document.getElementById("d-gallery").innerHTML = gal;
     document.getElementById("d-gallery-band").hidden = !gal;
     document.getElementById("d-info").innerHTML = (app.info || []).map(function (r) { return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>"; }).join("");
-    document.getElementById("d-links").innerHTML = (app.links || []).map(function (l) { return '<a class="btn ghost" href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a>'; }).join("");
+    document.getElementById("d-links").innerHTML = (app.links || []).map(function (l) { return '<a class="btn ghost" href="' + esc(l[1]) + '">' + esc(l[0]) + '</a>'; }).join("");
     document.getElementById("d-actions").innerHTML = statusHtml(app);
     document.getElementById("d-tags").innerHTML = app.tags.map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
     document.getElementById("d-screen").innerHTML = tpl("screen-" + app.id) ||

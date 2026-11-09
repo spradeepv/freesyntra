@@ -276,6 +276,8 @@ a.tile:hover img { transform: translateY(-4px) rotate(-2deg); }
 footer { border-top: 1px solid var(--line); }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; padding-block: 32px; color: var(--muted); font-size: 14px; }
 footer .brand svg { height: 26px; }
+.visits { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-variant-numeric: tabular-nums; }
+.visits[hidden] { display: none; }
 footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
 
 @media (max-width: 880px) {
@@ -458,9 +460,60 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
 </svg></a>
     <nav aria-label="Footer"><ul><li><a href="#apps">Apps</a></li><li><a href="#about">About</a></li></ul></nav>
     <span>© 2026 FreeSyntra. Android is a trademark of Google LLC.</span>
+    <p class="visits" id="visits" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span id="visits-count"></span></p>
   </div>
 </footer>
 
+
+<script>
+/* ===== Unique visitor counter =====
+   Counts each browser once, using a total stored in Firebase (Cloud Firestore).
+   Paste the website's Firebase web API key below. Until then the counter stays hidden. */
+(function () {
+  var SITE_COUNTER = {
+    apiKey: "AIzaSyCC9QuD3anAUdjMqw9Lau5fhNfyOhfv5tk",   // FreeSyntra website web app (Firebase)
+    projectId: "omnisplit-847fe",
+    doc: "siteStats/website"
+  };
+  if (!SITE_COUNTER.apiKey) return;
+
+  var base = "https://firestore.googleapis.com/v1/projects/" + SITE_COUNTER.projectId + "/databases/(default)/documents";
+  var docUrl = base + "/" + SITE_COUNTER.doc + "?key=" + SITE_COUNTER.apiKey;
+  var FLAG = "freesyntra_counted";
+
+  function counted() { try { return localStorage.getItem(FLAG) === "1"; } catch (e) { return null; } }
+  function markCounted() { try { localStorage.setItem(FLAG, "1"); } catch (e) {} }
+
+  function show(n) {
+    if (typeof n !== "number" || !isFinite(n) || n < 1) return;
+    document.getElementById("visits-count").textContent =
+      n.toLocaleString("en-IN") + (n === 1 ? " unique visitor" : " unique visitors");
+    document.getElementById("visits").hidden = false;
+  }
+
+  function read() {
+    return fetch(docUrl).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      var v = d && d.fields && d.fields.uniqueVisitors;
+      return v ? Number(v.integerValue) : 0;
+    });
+  }
+
+  function increment() {
+    var body = { writes: [{ transform: {
+      document: "projects/" + SITE_COUNTER.projectId + "/databases/(default)/documents/" + SITE_COUNTER.doc,
+      fieldTransforms: [{ fieldPath: "uniqueVisitors", increment: { integerValue: "1" } }]
+    } }] };
+    return fetch(base + ":commit?key=" + SITE_COUNTER.apiKey, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }).then(function (r) { if (!r.ok) throw new Error("count failed"); markCounted(); });
+  }
+
+  var already = counted();
+  // Browsers that block storage (some private windows) are not counted, so they can't be counted twice.
+  var step = already === false ? increment().catch(function () {}) : Promise.resolve();
+  step.then(read).then(show).catch(function () {});
+})();
+</script>
 <!-- Per-app assets. To add an app: add an icon template, optionally a screen and extra template, and one entry in APPS below. -->
 <template id="icon-omnisplit"><img src="images/omnisplit-icon.webp" alt="" width="256" height="256"></template>
 

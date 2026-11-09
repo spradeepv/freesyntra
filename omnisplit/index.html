@@ -1,0 +1,838 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<base href="../">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>OmniSplit: Free Expense Splitting App for Android | FreeSyntra</title>
+<meta name="description" content="Split bills with friends, flatmates and trips. OmniSplit splits expenses equally, by exact amounts, percentages or shares, suggests who pays whom, and supports ₹ INR plus 20+ currencies. Free on Android.">
+<link rel="canonical" href="https://freesyntra.com/omnisplit/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="FreeSyntra">
+<meta name="theme-color" content="#2F5BEA">
+<meta property="og:site_name" content="FreeSyntra">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="OmniSplit: Free Expense Splitting App for Android | FreeSyntra">
+<meta property="og:description" content="Split bills with friends, flatmates and trips. OmniSplit splits expenses equally, by exact amounts, percentages or shares, suggests who pays whom, and supports ₹ INR plus 20+ currencies. Free on Android.">
+<meta property="og:url" content="https://freesyntra.com/omnisplit/">
+<meta property="og:image" content="https://freesyntra.com/images/og/omnisplit-og.jpg">
+<meta property="og:image:alt" content="OmniSplit">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OmniSplit: Free Expense Splitting App for Android | FreeSyntra">
+<meta name="twitter:description" content="Split bills with friends, flatmates and trips. OmniSplit splits expenses equally, by exact amounts, percentages or shares, suggests who pays whom, and supports ₹ INR plus 20+ currencies. Free on Android.">
+<meta name="twitter:image" content="https://freesyntra.com/images/og/omnisplit-og.jpg">
+<meta name="fs-route" content="omnisplit">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://freesyntra.com/#org","name":"FreeSyntra","url":"https://freesyntra.com/","logo":"https://freesyntra.com/logo/png/freesyntra-app-icon-512.png","email":"freesyntra@gmail.com","description":"FreeSyntra is an independent maker of free Android apps, based in India."},{"@type":"MobileApplication","@id":"https://freesyntra.com/omnisplit/#app","name":"OmniSplit","url":"https://freesyntra.com/omnisplit/","description":"Free Android app to split shared expenses in groups: split equally, unequally, by percentage or by shares, with smart settle-up suggestions, ₹ INR and 20+ currencies, and CSV export.","operatingSystem":"Android 8.0+","applicationCategory":"FinanceApplication","softwareVersion":"1.0.1","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"image":"https://freesyntra.com/images/omnisplit-icon.webp","screenshot":["https://freesyntra.com/images/omnisplit-shot-1.webp","https://freesyntra.com/images/omnisplit-shot-2.webp","https://freesyntra.com/images/omnisplit-shot-3.webp","https://freesyntra.com/images/omnisplit-shot-4.webp","https://freesyntra.com/images/omnisplit-shot-5.webp","https://freesyntra.com/images/omnisplit-shot-6.webp"],"featureList":["Groups for trips, flats and offices","Split equally, by exact amounts, percentages or shares","Smart settle-up suggestions","₹ INR and 20+ currencies","Export to CSV","Google or email sign-in"],"author":{"@id":"https://freesyntra.com/#org"},"publisher":{"@id":"https://freesyntra.com/#org"},"privacyPolicy":"https://freesyntra.com/omnisplit/privacy-policy.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://freesyntra.com/"},{"@type":"ListItem","position":2,"name":"Apps","item":"https://freesyntra.com/apps/"},{"@type":"ListItem","position":3,"name":"OmniSplit","item":"https://freesyntra.com/omnisplit/"}]}]}</script>
+<link rel="icon" type="image/svg+xml" href="logo/svg/favicon.svg">
+<link rel="alternate icon" href="logo/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="logo/png/freesyntra-app-icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+/* Layout: sticky brand header; three views (home, apps catalogue, app detail) plus about, switched by the URL hash. */
+:root {
+  --bg: #F4F5F8;
+  --surface: #FFFFFF;
+  --ink: #121826;
+  --muted: #4A5163;
+  --line: #DCE0E8;
+  --accent: #2F5BEA;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E6ECFD;
+  --steel-1: #EEF1F6;
+  --steel-2: #C9D0DC;
+  --steel-3: #9AA4B5;
+  --owed: #0B7A55;
+  --owe: #B4361B;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-num: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1220; --surface: #161C2C; --ink: #EEF1F7; --muted: #A5ADBF; --line: #2A3247;
+    --accent: #6E8FFF; --accent-ink: #0D1220; --accent-soft: #1D2747;
+    --steel-1: #2A3244; --steel-2: #1C2333; --steel-3: #3E485E;
+    --owed: #4FD1A1; --owe: #FF8D6E; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1220; --surface: #161C2C; --ink: #EEF1F7; --muted: #A5ADBF; --line: #2A3247;
+  --accent: #6E8FFF; --accent-ink: #0D1220; --accent-soft: #1D2747;
+  --steel-1: #2A3244; --steel-2: #1C2333; --steel-3: #3E485E;
+  --owed: #4FD1A1; --owe: #FF8D6E; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.muted { color: var(--muted); }
+
+/* Header */
+header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { display: inline-flex; color: var(--ink); }
+.brand svg { height: 34px; width: auto; display: block; }
+.dot { fill: var(--accent); }
+nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-weight: 500; font-size: 15px; }
+nav a:hover { color: var(--ink); background: var(--surface); }
+nav a[aria-current="page"] { color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* Buttons and pills */
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 16px; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { color: var(--ink); border: 1.5px solid var(--line); background: var(--surface); }
+.btn.ghost:hover { border-color: var(--accent); }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 14px; }
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags span { font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+
+/* Home hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; padding-block: 80px 72px; }
+.hero h1 { font-size: clamp(42px, 6.4vw, 80px); }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { font-size: 20px; color: var(--muted); max-width: 32em; margin-top: 22px; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; align-items: center; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 40px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+.facts li { display: flex; align-items: center; gap: 8px; }
+.facts svg { color: var(--accent); flex: none; }
+
+/* Hero shelf: a grid of app tiles, filled from the app list, padded with "coming" slots */
+.shelf-art { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 420px; justify-self: center; width: 100%; }
+.tile { aspect-ratio: 1; border-radius: 26%; display: grid; place-items: center; text-decoration: none; color: var(--muted); }
+.tile svg { width: 100%; height: 100%; display: block; border-radius: 24%; box-shadow: 0 18px 30px -18px rgba(18, 24, 38, 0.6); transition: transform 0.2s ease; }
+a.tile:hover svg { transform: translateY(-4px) rotate(-2deg); }
+.tile.empty { border: 2px dashed var(--line); font-family: var(--font-display); font-size: 28px; }
+.shelf-cap { grid-column: 1 / -1; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* Bands */
+section.band { padding-block: 80px; }
+section.band.alt { background: var(--surface); border-block: 1px solid var(--line); }
+.section-head { display: grid; gap: 14px; max-width: 720px; margin-bottom: 40px; }
+.section-head h2 { font-size: clamp(32px, 4.4vw, 52px); }
+.section-head p { color: var(--muted); font-size: 18px; }
+.section-row { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+.section-row h2 { font-size: clamp(28px, 3.6vw, 40px); }
+
+/* App cards */
+.app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 20px; }
+.app-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; display: grid; gap: 14px; align-content: start; min-width: 0; text-decoration: none; color: var(--ink); transition: border-color 0.2s ease, transform 0.2s ease; }
+a.app-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.app-card .top { display: flex; align-items: center; gap: 16px; }
+.app-card .icon { width: 60px; height: 60px; flex: none; }
+.app-card .icon svg { width: 100%; height: 100%; display: block; }
+.app-card h3 { font-size: 24px; }
+.app-card .cat { font-size: 14px; color: var(--muted); }
+.app-card p { color: var(--muted); font-size: 16px; }
+.app-card .foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.app-card .more { font-weight: 600; color: var(--accent); font-size: 15px; display: inline-flex; gap: 6px; align-items: center; }
+.app-card.next { border-style: dashed; background: transparent; }
+.next-mark { width: 60px; height: 60px; border-radius: 16px; border: 2px dashed var(--line); display: grid; place-items: center; color: var(--muted); font-family: var(--font-display); font-size: 26px; flex: none; }
+.featured { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: 28px; padding: 40px; text-decoration: none; color: var(--ink); }
+a.featured:hover { border-color: var(--accent); }
+.featured .copy { display: grid; gap: 16px; }
+.featured .copy h3 { font-size: clamp(32px, 4vw, 44px); }
+.featured .copy p { color: var(--muted); font-size: 18px; }
+
+/* Catalogue toolbar */
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 600 14px var(--font-body); cursor: pointer; }
+.chips button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.count { font-size: 14px; color: var(--muted); }
+
+/* App detail */
+.crumb { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--muted); text-decoration: none; font-weight: 500; }
+.crumb:hover { color: var(--ink); }
+.detail-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; padding-block: 24px 72px; }
+.app-id { display: flex; align-items: center; gap: 20px; margin-top: 20px; }
+.app-id .icon { width: 88px; height: 88px; flex: none; }
+.app-id .icon svg { width: 100%; height: 100%; display: block; }
+.app-id h1 { font-size: clamp(40px, 5.4vw, 64px); }
+.app-id .cat { color: var(--muted); font-size: 16px; margin-top: 6px; }
+.detail-hero .lede { font-size: 20px; color: var(--muted); max-width: 32em; margin-top: 24px; }
+
+/* App icons as images */
+.icon img, .tile img { width: 100%; height: 100%; display: block; border-radius: 23%; }
+.tile img { box-shadow: 0 18px 30px -18px rgba(18, 24, 38, 0.6); transition: transform 0.2s ease; }
+a.tile:hover img { transform: translateY(-4px) rotate(-2deg); }
+
+/* Featured banner */
+.featured .banner { width: 100%; height: auto; aspect-ratio: 1024 / 500; object-fit: cover; border-radius: 18px; display: block; }
+
+/* Per-app themed hero: each app sets its own colours through --app-* properties */
+.app-hero { background: var(--app-bg, var(--ink)); color: var(--app-fg, #fff); }
+.app-hero .crumb { color: var(--app-muted, #ccc); }
+.app-hero .crumb:hover { color: var(--app-fg, #fff); }
+.app-hero .cat, .app-hero .lede { color: var(--app-muted, #ccc); }
+.app-hero .tags span { color: var(--app-fg, #fff); border-color: color-mix(in srgb, var(--app-fg, #fff) 30%, transparent); }
+.app-hero .pill { background: color-mix(in srgb, var(--app-accent, #fff) 20%, transparent); color: var(--app-fg, #fff); }
+.app-hero .pill::before { background: var(--app-accent, #fff); }
+.app-hero .btn.primary { background: var(--app-button, var(--accent)); color: #fff; }
+.app-hero .slogan { font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 30px); margin-top: 22px; color: var(--app-accent, #fff); letter-spacing: -0.01em; }
+.phone .shot { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+/* Screenshot gallery */
+.gallery { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; margin: 0; list-style: none; padding-left: 0; }
+.gallery li { flex: 0 0 auto; width: clamp(200px, 22vw, 250px); scroll-snap-align: start; }
+.gallery img { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 18px; display: block; border: 1px solid var(--line); }
+.gallery-hint { font-size: 14px; color: var(--muted); margin-top: 10px; }
+
+/* App info */
+.info { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin: 0; }
+.info div { background: var(--surface); padding: 20px 22px; min-width: 0; }
+.info dt { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.info dd { margin: 6px 0 0; font-family: var(--font-display); font-size: 20px; overflow-wrap: anywhere; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* OmniSpend illustrated screen (the app's own light palette) */
+.os-screen { background: #F6F6FC; color: #1C1E30; padding: 0 12px; gap: 10px; font-size: 12px; }
+.os-top { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 4px 2px; }
+.os-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; }
+.os-month { color: #5E6180; font-weight: 600; }
+.os-hero { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 14px; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #3D5AFE, #8E44FF 60%, #FF4D8D); }
+.os-hero small { display: block; font-size: 10.5px; opacity: 0.9; }
+.os-hero strong { display: block; font-family: var(--font-num); font-size: 21px; margin: 2px 0; }
+.os-delta { font-size: 10px; background: rgba(255,255,255,0.22); padding: 2px 7px; border-radius: 999px; }
+.os-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.os-tiles div, .os-card { background: #FFFFFF; border-radius: 14px; padding: 9px 10px; }
+.os-tiles small, .os-card small { display: block; font-size: 10px; color: #5E6180; }
+.os-tiles b { font-family: var(--font-num); font-size: 13px; }
+.os-bars { display: flex; align-items: flex-end; gap: 6px; height: 64px; margin-top: 6px; }
+.os-bars i { flex: 1; border-radius: 5px 5px 2px 2px; background: #C7CFFF; }
+.os-bars i.peak { background: linear-gradient(#FF8A00, #FF4D8D); }
+.os-strip { display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-top: 7px; gap: 2px; }
+.os-legend { display: flex; gap: 10px; margin-top: 7px; font-size: 10px; color: #5E6180; }
+.os-legend i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
+.app-hero .icon { border-radius: 23%; box-shadow: 0 0 0 2px rgba(255,255,255,0.45), 0 14px 30px -12px rgba(0,0,0,0.5); }
+.os-row { display: flex; align-items: center; gap: 8px; background: #FFFFFF; border-radius: 12px; padding: 8px 10px; }
+.os-row .e { width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 11px; flex: none; }
+.os-row span { flex: 1; min-width: 0; }
+.os-row b { font-family: var(--font-num); font-size: 11.5px; }
+.test-note { flex-basis: 100%; margin: 0; font-size: 14px; color: var(--app-muted, var(--muted)); }
+.app-hero .caption.app-cap { color: var(--app-muted, var(--muted)); }
+
+/* OmniSpend reports */
+.reports { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.report { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.report .fmt { justify-self: start; color: #fff; font: 700 13px var(--font-num); letter-spacing: 0.06em; padding: 6px 10px; border-radius: 8px; }
+.report h3 { font-size: 24px; }
+.report ul { margin: 0; padding-left: 20px; color: var(--muted); display: grid; gap: 6px; }
+
+/* Phone mock */
+.phone-stage { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.phone { width: min(300px, 100%); aspect-ratio: 9 / 18.5; border-radius: 40px; padding: 10px; background: linear-gradient(145deg, #2B3242, #0E121C 60%, #3A4356); box-shadow: 0 30px 60px -30px rgba(18, 24, 38, 0.55); }
+.screen { height: 100%; border-radius: 31px; overflow: hidden; background: linear-gradient(170deg, var(--steel-1), var(--steel-2)); display: flex; flex-direction: column; color: var(--ink); font-size: 13px; }
+.app-bar { display: flex; align-items: center; gap: 10px; padding: 22px 18px 12px; font-family: var(--font-display); font-weight: 700; font-size: 17px; }
+.app-bar svg { width: 26px; height: 26px; }
+.balance { margin: 4px 14px 14px; padding: 16px; border-radius: 18px; background: linear-gradient(135deg, #F7F9FC 0%, #C6CEDB 45%, #EEF2F7 70%, #AEB8C8 100%); color: #121826; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 6px 14px -8px rgba(18,24,38,0.4); }
+.balance small { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #3A4150; }
+.balance strong { display: block; font-family: var(--font-num); font-size: 26px; color: #0B6B4B; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.balance .split { display: flex; justify-content: space-between; font-size: 11.5px; margin-top: 8px; color: #3A4150; font-family: var(--font-num); }
+.list-title { padding: 0 18px 6px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.row { display: flex; align-items: center; gap: 10px; margin: 0 14px 8px; padding: 10px 12px; border-radius: 14px; background: color-mix(in srgb, var(--surface) 78%, transparent); }
+.row .av { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-weight: 700; font-size: 12px; color: #fff; flex: none; }
+.row .meta { flex: 1; min-width: 0; line-height: 1.25; }
+.row .meta b { display: block; font-weight: 600; font-size: 13px; }
+.row .meta span { font-size: 11px; color: var(--muted); }
+.row .amt { font-family: var(--font-num); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }
+.amt.owed { color: var(--owed); }
+.amt.owe { color: var(--owe); }
+.tabs-mock { margin-top: auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 10px 8px 16px; border-top: 1px solid color-mix(in srgb, var(--steel-3) 50%, transparent); font-size: 10.5px; text-align: center; color: var(--muted); }
+.tabs-mock span.on { color: var(--accent); font-weight: 700; }
+.caption { font-size: 13px; color: var(--muted); }
+
+/* Features */
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; margin: 0; padding: 0; list-style: none; }
+.features li { display: grid; gap: 8px; min-width: 0; align-content: start; }
+.features h4 { font-size: 19px; display: flex; gap: 10px; align-items: center; }
+.features h4 svg { color: var(--accent); flex: none; }
+.features p { color: var(--muted); font-size: 16px; }
+
+/* Split demo */
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.bill { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: grid; gap: 20px; min-width: 0; }
+.bill-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.bill-top b { font-family: var(--font-display); font-size: 22px; }
+.bill-top .total { font-family: var(--font-num); font-size: 22px; font-variant-numeric: tabular-nums; }
+.modes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; background: var(--bg); padding: 4px; border-radius: 12px; border: 1px solid var(--line); }
+.modes button { min-height: 44px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); font: 600 14px var(--font-body); cursor: pointer; }
+.modes button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.people { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.people li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.people .av { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 13px; }
+.people .bar { height: 10px; border-radius: 6px; background: var(--bg); overflow: hidden; margin-top: 6px; }
+.people .bar i { display: block; height: 100%; background: var(--accent); border-radius: 6px; transition: width 0.35s ease; }
+.people .rule { font-size: 13px; color: var(--muted); }
+.people .val { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 16px; }
+.demo-copy { display: grid; gap: 16px; }
+.demo-copy h3 { font-size: 28px; }
+.demo-copy p { color: var(--muted); }
+.demo-note { font-size: 13px; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; align-items: center; padding-block: 72px 88px; }
+.about .big-mark { color: var(--ink); max-width: 260px; justify-self: center; width: 100%; }
+.about .big-mark svg { width: 100%; height: auto; display: block; }
+.about-copy { display: grid; gap: 18px; }
+.about-copy h1 { font-size: clamp(36px, 5vw, 60px); }
+.about-copy p { color: var(--muted); font-size: 18px; max-width: 34em; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; padding-block: 32px; color: var(--muted); font-size: 14px; }
+footer .brand svg { height: 26px; }
+.visits { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-variant-numeric: tabular-nums; }
+.visits[hidden] { display: none; }
+footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
+
+@media (max-width: 880px) {
+  .info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero .wrap, .detail-hero .wrap, .demo, .about, .featured { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .hero .wrap { padding-block: 48px 56px; }
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  section.band { padding-block: 64px; }
+  .featured { padding: 28px; }
+}
+@media (max-width: 600px) {
+  .features, .reports { grid-template-columns: minmax(0, 1fr); }
+  .brand svg { height: 28px; }
+  nav a { padding: 0 10px; }
+  .modes button { font-size: 13px; }
+  .shelf-art { max-width: 300px; gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="FreeSyntra home"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 273.48 64">
+  <path d="M52 18 A24 24 0 1 0 54 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+  <circle cx="55.5" cy="29" r="3.6" class="dot"></circle>
+  <path d="M29.79296875 26.8984375H27.05078125V26.0078125C27.05078125 25.09375 27.44921875 24.5546875 28.515625 24.5546875C28.97265625 24.5546875 29.39453125 24.6484375 29.6875 24.73046875L30.3203125 22.08203125C29.88671875 21.953125 28.90234375 21.71875 27.80078125 21.71875C25.375 21.71875 23.546875 23.1015625 23.546875 25.890625V26.8984375H21.23828125V29.58203125H23.546875V40.0H27.05078125V29.58203125H29.79296875ZM36.2578125 40.2578125C39.69140625 40.2578125 42.1171875 38.53515625 42.1171875 35.95703125C42.1171875 34.09375 40.8984375 32.93359375 38.3671875 32.41796875L36.01171875 31.94921875C34.76953125 31.69140625 34.32421875 31.234375 34.32421875 30.578125C34.32421875 29.79296875 35.21484375 29.25390625 36.36328125 29.25390625C37.640625 29.25390625 38.37890625 29.88671875 38.66015625 30.77734375L41.77734375 30.2265625C41.28515625 28.09375 39.421875 26.734375 36.31640625 26.734375C33.0 26.734375 30.80859375 28.28125 30.80859375 30.80078125C30.80859375 32.7578125 32.05078125 34.0 34.58203125 34.515625L36.84375 34.984375C37.9921875 35.21875 38.53125 35.640625 38.53125 36.33203125C38.53125 37.1171875 37.69921875 37.6796875 36.36328125 37.6796875C34.921875 37.6796875 34.078125 37.08203125 33.73828125 35.8515625L30.46875 36.4140625C30.92578125 38.8515625 33.09375 40.2578125 36.2578125 40.2578125Z" fill="currentColor"></path>
+  <path d="M78.458203125 46.259765625H82.822265625V34.392578125H94.919140625V30.66015625H82.822265625V21.491796875H96.2015625V17.740234374999996H78.458203125ZM99.863546875 46.259765625H104.074484375V33.26328125C104.074484375 30.449609375 106.218234375 28.458984375 109.165890625 28.458984375C110.046359375 28.458984375 111.0608125 28.612109375 111.3670625 28.688671874999997V24.669140624999997C110.926828125 24.611718749999998 110.122921875 24.554296875 109.586984375 24.554296875C107.0795625 24.554296875 104.95495312499999 25.970703125 104.1701875 28.305859374999997H103.9405V24.860546874999997H99.863546875ZM122.87670312499999 46.7C127.4513125 46.7 130.724359375 44.460546875 131.7388125 41.130078125L127.776703125 40.1921875C127.03021874999999 42.1828125 125.26928124999999 43.21640625 122.91498437499999 43.21640625C119.41225 43.21640625 117.03881249999999 40.976953125 116.88568749999999 36.842578125H132.064203125V35.349609375C132.064203125 27.635937499999997 127.393890625 24.592578125 122.51303125 24.592578125C116.522015625 24.592578125 112.655609375 29.12890625 112.655609375 35.71328125C112.655609375 42.355078125 116.56029687499999 46.7 122.87670312499999 46.7ZM116.904828125 33.703515625C117.13451562499999 30.621875 119.163421875 28.076171875 122.53217187499999 28.076171875C125.7669375 28.076171875 127.585296875 30.334765625 127.89154687499999 33.703515625ZM144.53087499999998 46.7C149.10548437499997 46.7 152.37853124999998 44.460546875 153.39298437499997 41.130078125L149.430875 40.1921875C148.684390625 42.1828125 146.92345312499998 43.21640625 144.56915625 43.21640625C141.06642187499997 43.21640625 138.69298437499998 40.976953125 138.539859375 36.842578125H153.71837499999998V35.349609375C153.71837499999998 27.635937499999997 149.0480625 24.592578125 144.167203125 24.592578125C138.17618749999997 24.592578125 134.30978125 29.12890625 134.30978125 35.71328125C134.30978125 42.355078125 138.21446874999998 46.7 144.53087499999998 46.7ZM138.55899999999997 33.703515625C138.78868749999998 30.621875 140.81759375 28.076171875 144.18634375 28.076171875C147.421109375 28.076171875 149.23946875 30.334765625 149.54571875 33.703515625ZM166.85496874999998 46.73828125C173.55418749999998 46.73828125 177.42059375 43.21640625 177.42059375 38.373828125C177.42059375 33.225 172.845984375 31.272656249999997 169.20926562499997 30.334765625L166.43387499999997 29.607421875C164.25184374999998 29.033203125 161.30418749999998 28.018749999999997 161.30418749999998 25.319921875C161.30418749999998 22.908203125 163.48621874999998 21.147265625 166.95067187499998 21.147265625C170.18543749999998 21.147265625 172.50145312499998 22.640234375 172.78856249999998 25.243359374999997H177.03778125C176.90379687499998 20.707031249999996 172.90340625 17.357421874999996 167.04637499999998 17.357421874999996C161.30418749999998 17.357421874999996 156.940125 20.63046875 156.940125 25.568749999999998C156.940125 29.4734375 159.696375 31.866015625 164.36668749999998 33.11015625L167.69715624999998 34.02890625C170.75965624999998 34.851953125 173.113953125 35.828125 173.113953125 38.31640625C173.113953125 41.07265625 170.45340625 42.91015625 166.83582812499998 42.91015625C163.543640625 42.91015625 160.78739062499997 41.45546875 160.53856249999998 38.335546875H156.155359375C156.42332812499998 43.541796875 160.44285937499998 46.73828125 166.85496874999998 46.73828125ZM180.62320312499997 53.954296875C181.14 54.183984375 182.25015624999997 54.413671875 183.570859375 54.413671875C187.016171875 54.413671875 189.14078124999997 52.652734375 190.44234375 49.2265625L199.7446875 24.860546874999997H195.2275L190.920859375 37.01484375C190.2509375 38.871484375 189.772421875 40.728125 189.29390625 42.565625C188.83453125 40.728125 188.39429687499998 38.890625 187.743515625 37.01484375L183.51343749999998 24.860546874999997H178.95796875L187.092734375 46.35546875L186.633359375 47.925C185.84859375 50.68125 184.31734375 51.2171875 182.1353125 50.64296875L181.656796875 50.528125ZM206.29690624999998 33.588671875C206.29690624999998 30.20078125 208.40237499999998 28.267578125 211.27346874999998 28.267578125C214.06799999999998 28.267578125 215.79065624999998 30.105078125 215.79065624999998 33.18671875V46.259765625H220.00159374999998V32.669921875C220.00159374999998 27.387109374999998 217.09221875 24.592578125 212.72815624999998 24.592578125C209.7039375 24.592578125 207.46448437499998 25.951562499999998 206.12464062499998 28.975781249999997L206.10549999999998 24.860546874999997H202.08596874999998V46.259765625H206.29690624999998ZM233.4444375 24.860546874999997H229.17607812499998V19.769140625H224.96514062499998V24.860546874999997H221.84521875V28.28671875H224.96514062499998V40.823828125C224.96514062499998 44.460546875 227.20459375 46.546875 231.09014062499998 46.546875C232.06631249999998 46.546875 233.1381875 46.412890625 234.037796875 46.106640625L233.29131249999998 42.737890625C232.774515625 42.852734375 231.95146874999998 42.967578125 231.511234375 42.967578125C229.84599999999998 42.967578125 229.17607812499998 42.201953125 229.17607812499998 40.479296875V28.28671875H233.4444375ZM236.26423437499997 46.259765625H240.47517187499997V33.26328125C240.47517187499997 30.449609375 242.61892187499998 28.458984375 245.56657812499998 28.458984375C246.44704687499998 28.458984375 247.46149999999997 28.612109375 247.76774999999998 28.688671874999997V24.669140624999997C247.327515625 24.611718749999998 246.52360937499998 24.554296875 245.987671875 24.554296875C243.48024999999998 24.554296875 241.35564062499998 25.970703125 240.57087499999997 28.305859374999997H240.3411875V24.860546874999997H236.26423437499997ZM256.042625 46.73828125C259.50707812499996 46.73828125 261.535984375 44.996484375 262.35903125 43.33125H262.56957812499996V46.259765625H266.64653124999995V32.057421875C266.64653124999995 25.875 261.727390625 24.592578125 258.282078125 24.592578125C254.47309374999998 24.592578125 250.87465625 26.085546875 249.41996874999998 29.913671875L253.382078125 30.947265625C253.97543749999997 29.492578124999998 255.54496874999998 28.018749999999997 258.3395 28.018749999999997C261.0191875 28.018749999999997 262.43559375 29.396874999999998 262.43559375 31.7703125V31.88515625C262.43559375 33.397265625 260.808640625 33.378125 257.0379375 33.818359375C252.999265625 34.277734375 248.80746874999997 35.349609375 248.80746874999997 40.211328125C248.80746874999997 44.422265625 251.96567187499997 46.73828125 256.042625 46.73828125ZM256.98051562499995 43.350390625C254.62621875 43.350390625 252.94184374999998 42.29765625 252.94184374999998 40.26875C252.94184374999998 38.067578125 254.8941875 37.263671875 257.26762499999995 36.93828125C258.5691875 36.766015625 261.82309375 36.421484375 262.454734375 35.808984375V38.54609375C262.454734375 41.053515625 260.4066875 43.350390625 256.98051562499995 43.350390625Z" fill="currentColor"></path>
+</svg></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="./" data-nav="home">Home</a></li>
+        <li><a href="apps/" data-nav="apps" aria-current="page">Apps</a></li>
+        <li><a href="about/" data-nav="about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  
+
+  <!-- APPS CATALOGUE -->
+  
+
+  <!-- APP DETAIL (filled from the app list) -->
+  <div data-view="detail">
+    <section class="detail-hero app-hero" id="d-hero" style="--app-bg: radial-gradient(120% 90% at 0% 0%, #5A2BA8 0%, rgba(90,43,168,0) 55%), radial-gradient(90% 80% at 100% 100%, #0D6A84 0%, rgba(13,106,132,0) 60%), #1A1336; --app-fg: #F5F2FF; --app-muted: #CFC8EC; --app-accent: #C4B0FF; --app-button: linear-gradient(90deg, #8B5CF6, #E0479E);">
+      <div class="wrap" style="padding-block: 24px 64px">
+        <div>
+          <a class="crumb" href="apps/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>All apps</a>
+          <div class="app-id">
+            <div class="icon" id="d-icon"><img src="images/omnisplit-icon.webp" alt="" width="256" height="256"></div>
+            <div>
+              <h1 id="d-name">OmniSplit</h1>
+              <p class="cat" id="d-cat">Finance · Split shared expenses · Android</p>
+            </div>
+          </div>
+          <p class="slogan" id="d-slogan">Split anything. Settle everything.</p>
+          <p class="lede" id="d-desc" style="margin-top: 12px">Trips, flatmates, team lunches. Add what you spent, choose how to split it, and OmniSplit works out who owes whom, and the fewest payments to settle up.</p>
+          <div class="actions" id="d-actions"><a class="btn primary" href="https://play.google.com/apps/internaltest/4701297268191214060" target="_blank" rel="noopener">Get it on Google Play</a><span class="pill">In testing</span><p class="test-note">The app is in early testing. The link works for invited testers.</p></div>
+          <div class="tags" id="d-tags" style="margin-top: 28px"><span>Equal · % · Shares</span><span>Smart settle-up</span><span>₹ + 20 currencies</span></div>
+        </div>
+        <div id="d-screen">
+  <div class="phone-stage">
+    <div class="phone"><div class="screen"><img class="shot" src="images/omnisplit-home.webp" alt="OmniSplit home screen with the overall balance, who to settle with, and your groups" width="540" height="1058"></div></div>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="band" id="d-gallery-band">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Screenshots</p><h2>See it in action.</h2></div>
+        <ul class="gallery" id="d-gallery" tabindex="0" aria-label="Screenshots">
+  <li><img src="images/omnisplit-shot-1.webp" alt="Know where you stand: your overall balance across every group" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-2.webp" alt="Every expense in one place: see who paid and what you owe" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-3.webp" alt="Split any way you like: equally, unequally, by percent or by shares" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-4.webp" alt="Settle up the smart way: suggested payments with one-tap settle" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-5.webp" alt="Add anyone, even without an account: guests link up when they join" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-6.webp" alt="Sign in your way: Google or email, securely verified" width="540" height="960" loading="lazy"></li>
+</ul>
+        <p class="gallery-hint">Scroll sideways to see more.</p>
+      </div>
+    </section>
+    <section class="band alt">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Features</p><h2 id="d-feat-title">Everything you need to split fairly.</h2></div>
+        <ul class="features" id="d-features"><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h12M7 9h9M7 14h12M7 19h6"></path><path d="M3 4h.01M3 9h.01M3 14h.01M3 19h.01"></path></svg>Know where you stand</h4><p>Home shows your overall balance in each currency, who you need to settle with, and where you stand in every group.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="9" cy="8" r="3.5"></circle><circle cx="17.5" cy="9" r="2.5"></circle><path d="M16 14.2a5 5 0 0 1 5.5 5.8"></path></svg>Groups for everything</h4><p>Create a group for a trip, a flat or an office, with its own default currency. Add expenses and members inside it.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v9l6.4 6.4"></path></svg>Four ways to split</h4><p>Split equally, unequally with exact amounts, by percentage, or by shares. Amounts always add up to the paisa.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"></path><circle cx="6" cy="12" r="2"></circle></svg>Smart settle-up</h4><p>See suggested payments between members, then tap Settle to record a payment when someone pays you back.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"></path></svg>Add anyone</h4><p>Add friends, any OmniSplit user by email, or guests without an account. Guests link up when they join.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12M6 9h12M13.5 20 6 13h3a4.5 4.5 0 0 0 0-9"></path></svg>₹ and 20+ currencies</h4><p>Indian rupees by default, with more than 20 other currencies. Balances are kept separately for each currency.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><path d="M14 3v6h6M8 13h8M8 17h5"></path></svg>Export to CSV</h4><p>Download a group's expenses, settlements and balances as a CSV file, or share them as text.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>Sign in your way</h4><p>Use your Google account, or an email and password. Email sign-ups are verified before they can log in.</p></li><li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>Private by design</h4><p>No ads, and your data is never sold. Only you and the people in your groups can see your expenses.</p></li></ul>
+      </div>
+    </section>
+    <div id="d-extra">
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it splits</p>
+        <h2>One dinner, four ways to share it.</h2>
+        <p>Not every bill is split evenly. Pick a mode to see how OmniSplit divides a ₹1,200 dinner between three friends.</p>
+      </div>
+      <div class="demo">
+        <div class="bill">
+          <div class="bill-top"><b>Dinner at Koshy's</b><span class="total">₹1,200.00</span></div>
+          <div class="modes" role="group" aria-label="Split mode">
+            <button type="button" id="mode-equal" data-mode="equal" aria-pressed="true">Equally</button>
+            <button type="button" id="mode-exact" data-mode="exact" aria-pressed="false">Exact</button>
+            <button type="button" id="mode-percent" data-mode="percent" aria-pressed="false">Percent</button>
+            <button type="button" id="mode-shares" data-mode="shares" aria-pressed="false">Shares</button>
+          </div>
+          <ul class="people" data-people="" aria-live="polite"><li><div class="av" style="background:#2F5BEA">A</div><div><div style="display:flex;justify-content:space-between;gap:8px"><b>Asha</b><span class="rule">1 of 3 equal parts</span></div><div class="bar"><i style="width:100%"></i></div></div><span class="val">₹400.00</span></li><li><div class="av" style="background:#0B7A55">R</div><div><div style="display:flex;justify-content:space-between;gap:8px"><b>Ravi</b><span class="rule">1 of 3 equal parts</span></div><div class="bar"><i style="width:100%"></i></div></div><span class="val">₹400.00</span></li><li><div class="av" style="background:#B4361B">M</div><div><div style="display:flex;justify-content:space-between;gap:8px"><b>Meera</b><span class="rule">1 of 3 equal parts</span></div><div class="bar"><i style="width:100%"></i></div></div><span class="val">₹400.00</span></li></ul>
+        </div>
+        <div class="demo-copy">
+          <h3 data-mode-title="">Equally</h3>
+          <p data-mode-text="">Everyone pays the same. ₹1,200 between three people is ₹400 each.</p>
+          <p class="demo-note muted">Amounts are examples. In the app, you set them for each expense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+    <section class="band alt">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom: 28px"><p class="eyebrow">App info</p><h2>Details</h2></div>
+        <dl class="info" id="d-info"><div><dt>Version</dt><dd>1.0.1</dd></div><div><dt>Requires</dt><dd>Android 8.0+</dd></div><div><dt>Price</dt><dd>Free</dd></div><div><dt>Category</dt><dd>Finance</dd></div></dl>
+        <div class="links" id="d-links"><a class="btn ghost" href="omnisplit/privacy-policy.html">Privacy policy</a><a class="btn ghost" href="omnisplit/delete-account.html">Delete your account</a></div>
+      </div>
+    </section>
+    <section class="band" id="d-others-band">
+      <div class="wrap">
+        <div class="section-row"><h2>More from FreeSyntra</h2><a class="btn ghost" href="apps/">See all apps</a></div>
+        <div class="app-grid" id="d-others"><a class="app-card" href="omnispend/"><div class="top"><div class="icon"><img src="images/omnispend-icon.webp" alt="" width="256" height="256"></div><div><h3>OmniSpend</h3><div class="cat">Finance · Track your spending</div></div></div><p>A colourful expense tracker with charts, budgets, and PDF and Excel reports.</p><div class="foot"><span class="pill">In testing</span><span class="more">View app <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div></a><div class="app-card next"><div class="top"><div class="next-mark" aria-hidden="true">+</div><div><h3>Next app</h3><div class="cat">In the works</div></div></div><p>We're working on our next free app. It will appear here when it launches.</p></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="FreeSyntra home"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 273.48 64">
+  <path d="M52 18 A24 24 0 1 0 54 40" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+  <circle cx="55.5" cy="29" r="3.6" class="dot"></circle>
+  <path d="M29.79296875 26.8984375H27.05078125V26.0078125C27.05078125 25.09375 27.44921875 24.5546875 28.515625 24.5546875C28.97265625 24.5546875 29.39453125 24.6484375 29.6875 24.73046875L30.3203125 22.08203125C29.88671875 21.953125 28.90234375 21.71875 27.80078125 21.71875C25.375 21.71875 23.546875 23.1015625 23.546875 25.890625V26.8984375H21.23828125V29.58203125H23.546875V40.0H27.05078125V29.58203125H29.79296875ZM36.2578125 40.2578125C39.69140625 40.2578125 42.1171875 38.53515625 42.1171875 35.95703125C42.1171875 34.09375 40.8984375 32.93359375 38.3671875 32.41796875L36.01171875 31.94921875C34.76953125 31.69140625 34.32421875 31.234375 34.32421875 30.578125C34.32421875 29.79296875 35.21484375 29.25390625 36.36328125 29.25390625C37.640625 29.25390625 38.37890625 29.88671875 38.66015625 30.77734375L41.77734375 30.2265625C41.28515625 28.09375 39.421875 26.734375 36.31640625 26.734375C33.0 26.734375 30.80859375 28.28125 30.80859375 30.80078125C30.80859375 32.7578125 32.05078125 34.0 34.58203125 34.515625L36.84375 34.984375C37.9921875 35.21875 38.53125 35.640625 38.53125 36.33203125C38.53125 37.1171875 37.69921875 37.6796875 36.36328125 37.6796875C34.921875 37.6796875 34.078125 37.08203125 33.73828125 35.8515625L30.46875 36.4140625C30.92578125 38.8515625 33.09375 40.2578125 36.2578125 40.2578125Z" fill="currentColor"></path>
+  <path d="M78.458203125 46.259765625H82.822265625V34.392578125H94.919140625V30.66015625H82.822265625V21.491796875H96.2015625V17.740234374999996H78.458203125ZM99.863546875 46.259765625H104.074484375V33.26328125C104.074484375 30.449609375 106.218234375 28.458984375 109.165890625 28.458984375C110.046359375 28.458984375 111.0608125 28.612109375 111.3670625 28.688671874999997V24.669140624999997C110.926828125 24.611718749999998 110.122921875 24.554296875 109.586984375 24.554296875C107.0795625 24.554296875 104.95495312499999 25.970703125 104.1701875 28.305859374999997H103.9405V24.860546874999997H99.863546875ZM122.87670312499999 46.7C127.4513125 46.7 130.724359375 44.460546875 131.7388125 41.130078125L127.776703125 40.1921875C127.03021874999999 42.1828125 125.26928124999999 43.21640625 122.91498437499999 43.21640625C119.41225 43.21640625 117.03881249999999 40.976953125 116.88568749999999 36.842578125H132.064203125V35.349609375C132.064203125 27.635937499999997 127.393890625 24.592578125 122.51303125 24.592578125C116.522015625 24.592578125 112.655609375 29.12890625 112.655609375 35.71328125C112.655609375 42.355078125 116.56029687499999 46.7 122.87670312499999 46.7ZM116.904828125 33.703515625C117.13451562499999 30.621875 119.163421875 28.076171875 122.53217187499999 28.076171875C125.7669375 28.076171875 127.585296875 30.334765625 127.89154687499999 33.703515625ZM144.53087499999998 46.7C149.10548437499997 46.7 152.37853124999998 44.460546875 153.39298437499997 41.130078125L149.430875 40.1921875C148.684390625 42.1828125 146.92345312499998 43.21640625 144.56915625 43.21640625C141.06642187499997 43.21640625 138.69298437499998 40.976953125 138.539859375 36.842578125H153.71837499999998V35.349609375C153.71837499999998 27.635937499999997 149.0480625 24.592578125 144.167203125 24.592578125C138.17618749999997 24.592578125 134.30978125 29.12890625 134.30978125 35.71328125C134.30978125 42.355078125 138.21446874999998 46.7 144.53087499999998 46.7ZM138.55899999999997 33.703515625C138.78868749999998 30.621875 140.81759375 28.076171875 144.18634375 28.076171875C147.421109375 28.076171875 149.23946875 30.334765625 149.54571875 33.703515625ZM166.85496874999998 46.73828125C173.55418749999998 46.73828125 177.42059375 43.21640625 177.42059375 38.373828125C177.42059375 33.225 172.845984375 31.272656249999997 169.20926562499997 30.334765625L166.43387499999997 29.607421875C164.25184374999998 29.033203125 161.30418749999998 28.018749999999997 161.30418749999998 25.319921875C161.30418749999998 22.908203125 163.48621874999998 21.147265625 166.95067187499998 21.147265625C170.18543749999998 21.147265625 172.50145312499998 22.640234375 172.78856249999998 25.243359374999997H177.03778125C176.90379687499998 20.707031249999996 172.90340625 17.357421874999996 167.04637499999998 17.357421874999996C161.30418749999998 17.357421874999996 156.940125 20.63046875 156.940125 25.568749999999998C156.940125 29.4734375 159.696375 31.866015625 164.36668749999998 33.11015625L167.69715624999998 34.02890625C170.75965624999998 34.851953125 173.113953125 35.828125 173.113953125 38.31640625C173.113953125 41.07265625 170.45340625 42.91015625 166.83582812499998 42.91015625C163.543640625 42.91015625 160.78739062499997 41.45546875 160.53856249999998 38.335546875H156.155359375C156.42332812499998 43.541796875 160.44285937499998 46.73828125 166.85496874999998 46.73828125ZM180.62320312499997 53.954296875C181.14 54.183984375 182.25015624999997 54.413671875 183.570859375 54.413671875C187.016171875 54.413671875 189.14078124999997 52.652734375 190.44234375 49.2265625L199.7446875 24.860546874999997H195.2275L190.920859375 37.01484375C190.2509375 38.871484375 189.772421875 40.728125 189.29390625 42.565625C188.83453125 40.728125 188.39429687499998 38.890625 187.743515625 37.01484375L183.51343749999998 24.860546874999997H178.95796875L187.092734375 46.35546875L186.633359375 47.925C185.84859375 50.68125 184.31734375 51.2171875 182.1353125 50.64296875L181.656796875 50.528125ZM206.29690624999998 33.588671875C206.29690624999998 30.20078125 208.40237499999998 28.267578125 211.27346874999998 28.267578125C214.06799999999998 28.267578125 215.79065624999998 30.105078125 215.79065624999998 33.18671875V46.259765625H220.00159374999998V32.669921875C220.00159374999998 27.387109374999998 217.09221875 24.592578125 212.72815624999998 24.592578125C209.7039375 24.592578125 207.46448437499998 25.951562499999998 206.12464062499998 28.975781249999997L206.10549999999998 24.860546874999997H202.08596874999998V46.259765625H206.29690624999998ZM233.4444375 24.860546874999997H229.17607812499998V19.769140625H224.96514062499998V24.860546874999997H221.84521875V28.28671875H224.96514062499998V40.823828125C224.96514062499998 44.460546875 227.20459375 46.546875 231.09014062499998 46.546875C232.06631249999998 46.546875 233.1381875 46.412890625 234.037796875 46.106640625L233.29131249999998 42.737890625C232.774515625 42.852734375 231.95146874999998 42.967578125 231.511234375 42.967578125C229.84599999999998 42.967578125 229.17607812499998 42.201953125 229.17607812499998 40.479296875V28.28671875H233.4444375ZM236.26423437499997 46.259765625H240.47517187499997V33.26328125C240.47517187499997 30.449609375 242.61892187499998 28.458984375 245.56657812499998 28.458984375C246.44704687499998 28.458984375 247.46149999999997 28.612109375 247.76774999999998 28.688671874999997V24.669140624999997C247.327515625 24.611718749999998 246.52360937499998 24.554296875 245.987671875 24.554296875C243.48024999999998 24.554296875 241.35564062499998 25.970703125 240.57087499999997 28.305859374999997H240.3411875V24.860546874999997H236.26423437499997ZM256.042625 46.73828125C259.50707812499996 46.73828125 261.535984375 44.996484375 262.35903125 43.33125H262.56957812499996V46.259765625H266.64653124999995V32.057421875C266.64653124999995 25.875 261.727390625 24.592578125 258.282078125 24.592578125C254.47309374999998 24.592578125 250.87465625 26.085546875 249.41996874999998 29.913671875L253.382078125 30.947265625C253.97543749999997 29.492578124999998 255.54496874999998 28.018749999999997 258.3395 28.018749999999997C261.0191875 28.018749999999997 262.43559375 29.396874999999998 262.43559375 31.7703125V31.88515625C262.43559375 33.397265625 260.808640625 33.378125 257.0379375 33.818359375C252.999265625 34.277734375 248.80746874999997 35.349609375 248.80746874999997 40.211328125C248.80746874999997 44.422265625 251.96567187499997 46.73828125 256.042625 46.73828125ZM256.98051562499995 43.350390625C254.62621875 43.350390625 252.94184374999998 42.29765625 252.94184374999998 40.26875C252.94184374999998 38.067578125 254.8941875 37.263671875 257.26762499999995 36.93828125C258.5691875 36.766015625 261.82309375 36.421484375 262.454734375 35.808984375V38.54609375C262.454734375 41.053515625 260.4066875 43.350390625 256.98051562499995 43.350390625Z" fill="currentColor"></path>
+</svg></a>
+    <nav aria-label="Footer"><ul><li><a href="apps/">Apps</a></li><li><a href="about/">About</a></li></ul></nav>
+    <span>© 2026 FreeSyntra. Android is a trademark of Google LLC.</span>
+    <p class="visits" id="visits" hidden=""><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg><span id="visits-count"></span></p>
+  </div>
+</footer>
+
+
+<script>
+/* ===== Unique visitor counter =====
+   Counts each browser once, using a total stored in Firebase (Cloud Firestore).
+   Paste the website's Firebase web API key below. Until then the counter stays hidden. */
+(function () {
+  var SITE_COUNTER = {
+    apiKey: "AIzaSyCC9QuD3anAUdjMqw9Lau5fhNfyOhfv5tk",   // FreeSyntra website web app (Firebase)
+    projectId: "omnisplit-847fe",
+    doc: "siteStats/website"
+  };
+  if (!SITE_COUNTER.apiKey) return;
+
+  var base = "https://firestore.googleapis.com/v1/projects/" + SITE_COUNTER.projectId + "/databases/(default)/documents";
+  var docUrl = base + "/" + SITE_COUNTER.doc + "?key=" + SITE_COUNTER.apiKey;
+  var FLAG = "freesyntra_counted";
+
+  function counted() { try { return localStorage.getItem(FLAG) === "1"; } catch (e) { return null; } }
+  function markCounted() { try { localStorage.setItem(FLAG, "1"); } catch (e) {} }
+
+  function show(n) {
+    if (typeof n !== "number" || !isFinite(n) || n < 1) return;
+    document.getElementById("visits-count").textContent =
+      n.toLocaleString("en-IN") + (n === 1 ? " unique visitor" : " unique visitors");
+    document.getElementById("visits").hidden = false;
+  }
+
+  function read() {
+    return fetch(docUrl).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      var v = d && d.fields && d.fields.uniqueVisitors;
+      return v ? Number(v.integerValue) : 0;
+    });
+  }
+
+  function increment() {
+    var body = { writes: [{ transform: {
+      document: "projects/" + SITE_COUNTER.projectId + "/databases/(default)/documents/" + SITE_COUNTER.doc,
+      fieldTransforms: [{ fieldPath: "uniqueVisitors", increment: { integerValue: "1" } }]
+    } }] };
+    return fetch(base + ":commit?key=" + SITE_COUNTER.apiKey, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+    }).then(function (r) { if (!r.ok) throw new Error("count failed"); markCounted(); });
+  }
+
+  var already = counted();
+  // Browsers that block storage (some private windows) are not counted, so they can't be counted twice.
+  var step = already === false ? increment().catch(function () {}) : Promise.resolve();
+  step.then(read).then(show).catch(function () {});
+})();
+</script>
+<!-- Per-app assets. To add an app: add an icon template, optionally a screen and extra template, and one entry in APPS below. -->
+<template id="icon-omnisplit"><img src="images/omnisplit-icon.webp" alt="" width="256" height="256"></template>
+
+<template id="banner-omnisplit"><img class="banner" src="images/omnisplit-feature.webp" alt="OmniSplit: Split anything. Settle everything. Shows an overall balance card and two groups." width="1024" height="500"></template>
+
+<template id="screen-omnisplit">
+  <div class="phone-stage">
+    <div class="phone"><div class="screen"><img class="shot" src="images/omnisplit-home.webp" alt="OmniSplit home screen with the overall balance, who to settle with, and your groups" width="540" height="1058"></div></div>
+  </div>
+</template>
+
+<template id="gallery-omnisplit">
+  <li><img src="images/omnisplit-shot-1.webp" alt="Know where you stand: your overall balance across every group" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-2.webp" alt="Every expense in one place: see who paid and what you owe" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-3.webp" alt="Split any way you like: equally, unequally, by percent or by shares" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-4.webp" alt="Settle up the smart way: suggested payments with one-tap settle" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-5.webp" alt="Add anyone, even without an account: guests link up when they join" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnisplit-shot-6.webp" alt="Sign in your way: Google or email, securely verified" width="540" height="960" loading="lazy"></li>
+</template>
+
+<template id="icon-omnispend"><img src="images/omnispend-icon.webp" alt="" width="256" height="256"></template>
+
+<template id="screen-omnispend">
+  <div class="phone-stage">
+    <div class="phone"><div class="screen"><img class="shot" src="images/omnispend-home.webp" alt="OmniSpend home screen with this month's total, today, week and daily-average tiles, and the last 7 days chart" width="540" height="1063"></div></div>
+  </div>
+</template>
+
+<template id="banner-omnispend"><img class="banner" src="images/omnispend-feature.webp" alt="OmniSpend: Track every rupee. See where it goes. Shows a daily spending chart, a category donut and this month's total." width="1024" height="500"></template>
+
+<template id="gallery-omnispend">
+  <li><img src="images/omnispend-shot-1.webp" alt="Your money at a glance: monthly total, budget and daily trends" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnispend-shot-2.webp" alt="Add expenses in seconds, and create new categories on the go" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnispend-shot-3.webp" alt="See where it all goes: donut, bars, tiles and month-on-month" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnispend-shot-4.webp" alt="Spot your priciest day, with smart insights for every month" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnispend-shot-5.webp" alt="Track 12-month trends: monthly totals, highs and lows" width="540" height="960" loading="lazy"></li>
+  <li><img src="images/omnispend-shot-6.webp" alt="Export PDF and Excel: preview, then share reports in one tap" width="540" height="960" loading="lazy"></li>
+</template>
+
+<template id="extra-omnispend">
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Reports</p>
+        <h2>Reports you can share.</h2>
+        <p>Choose this month, last month, the last 3, 6 or 12 months, or your own dates. Pick the categories, then export.</p>
+      </div>
+      <div class="reports">
+        <article class="report">
+          <span class="fmt" style="background:#E5484D">PDF</span>
+          <h3>PDF report</h3>
+          <ul>
+            <li>Summary tiles and a category donut</li>
+            <li>Monthly or daily bar chart</li>
+            <li>The most expensive day in each month</li>
+            <li>Every transaction, with page numbers</li>
+          </ul>
+        </article>
+        <article class="report">
+          <span class="fmt" style="background:#1D7A45">XLS</span>
+          <h3>Excel workbook</h3>
+          <ul>
+            <li>Summary and By Category sheets</li>
+            <li>Monthly sheet with each month's peak day</li>
+            <li>Daily sheet with the peak highlighted</li>
+            <li>All transactions, with live SUM totals</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+</template>
+
+<template id="extra-omnisplit">
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it splits</p>
+        <h2>One dinner, four ways to share it.</h2>
+        <p>Not every bill is split evenly. Pick a mode to see how OmniSplit divides a ₹1,200 dinner between three friends.</p>
+      </div>
+      <div class="demo">
+        <div class="bill">
+          <div class="bill-top"><b>Dinner at Koshy's</b><span class="total">₹1,200.00</span></div>
+          <div class="modes" role="group" aria-label="Split mode">
+            <button type="button" id="mode-equal" data-mode="equal" aria-pressed="true">Equally</button>
+            <button type="button" id="mode-exact" data-mode="exact" aria-pressed="false">Exact</button>
+            <button type="button" id="mode-percent" data-mode="percent" aria-pressed="false">Percent</button>
+            <button type="button" id="mode-shares" data-mode="shares" aria-pressed="false">Shares</button>
+          </div>
+          <ul class="people" data-people="" aria-live="polite"></ul>
+        </div>
+        <div class="demo-copy">
+          <h3 data-mode-title="">Equally</h3>
+          <p data-mode-text="">Everyone pays the same. ₹1,200 between three people is ₹400 each.</p>
+          <p class="demo-note muted">Amounts are examples. In the app, you set them for each expense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+(function () {
+  var ICONS = {
+    group: '<path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="9" cy="8" r="3.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5.5 5.8"/>',
+    pie: '<circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.4 6.4"/>',
+    list: '<path d="M7 4h12M7 9h9M7 14h12M7 19h6"/><path d="M3 4h.01M3 9h.01M3 14h.01M3 19h.01"/>',
+    currency: '<path d="M6 4h12M6 9h12M13.5 20 6 13h3a4.5 4.5 0 0 0 0-9"/>',
+    file: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>',
+    lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+    handshake: '<path d="M4 12h16M14 6l6 6-6 6"/><circle cx="6" cy="12" r="2"/>',
+    userplus: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/>',
+    shield: '<path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+    sync: '<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M4 4v4h4M20 20v-4h-4"/>',
+    plus: '<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',
+    tag: '<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="8" cy="8" r="1.5"/>',
+    home: '<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/>',
+    chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    phone: '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',
+    cloud: '<path d="M7 18a5 5 0 0 1-.6-9.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/>'
+  };
+
+  /* ===== The app list. Add new apps here. =====
+     status: "soon" shows "Coming soon to Google Play"; "live" shows a Google Play button using playUrl. */
+  var APPS = [
+    {
+      id: "omnisplit",
+      name: "OmniSplit",
+      category: "Finance",
+      tagline: "Split shared expenses",
+      slogan: "Split anything. Settle everything.",
+      summary: "Track group spending, split bills any way you like, and settle up in a tap.",
+      description: "Trips, flatmates, team lunches. Add what you spent, choose how to split it, and OmniSplit works out who owes whom, and the fewest payments to settle up.",
+      status: "test",
+      playUrl: "https://play.google.com/apps/internaltest/4701297268191214060",
+      added: "2026-11",
+      tags: ["Equal · % · Shares", "Smart settle-up", "₹ + 20 currencies"],
+      theme: {
+        bg: "radial-gradient(120% 90% at 0% 0%, #5A2BA8 0%, rgba(90,43,168,0) 55%), radial-gradient(90% 80% at 100% 100%, #0D6A84 0%, rgba(13,106,132,0) 60%), #1A1336",
+        fg: "#F5F2FF", muted: "#CFC8EC", accent: "#C4B0FF", button: "linear-gradient(90deg, #8B5CF6, #E0479E)"
+      },
+      info: [["Version", "1.0.1"], ["Requires", "Android 8.0+"], ["Price", "Free"], ["Category", "Finance"]],
+      links: [["Privacy policy", "omnisplit/privacy-policy.html"], ["Delete your account", "omnisplit/delete-account.html"]],
+      featuresTitle: "Everything you need to split fairly.",
+      features: [
+        { icon: "list", title: "Know where you stand", text: "Home shows your overall balance in each currency, who you need to settle with, and where you stand in every group." },
+        { icon: "group", title: "Groups for everything", text: "Create a group for a trip, a flat or an office, with its own default currency. Add expenses and members inside it." },
+        { icon: "pie", title: "Four ways to split", text: "Split equally, unequally with exact amounts, by percentage, or by shares. Amounts always add up to the paisa." },
+        { icon: "handshake", title: "Smart settle-up", text: "See suggested payments between members, then tap Settle to record a payment when someone pays you back." },
+        { icon: "userplus", title: "Add anyone", text: "Add friends, any OmniSplit user by email, or guests without an account. Guests link up when they join." },
+        { icon: "currency", title: "₹ and 20+ currencies", text: "Indian rupees by default, with more than 20 other currencies. Balances are kept separately for each currency." },
+        { icon: "file", title: "Export to CSV", text: "Download a group's expenses, settlements and balances as a CSV file, or share them as text." },
+        { icon: "lock", title: "Sign in your way", text: "Use your Google account, or an email and password. Email sign-ups are verified before they can log in." },
+        { icon: "shield", title: "Private by design", text: "No ads, and your data is never sold. Only you and the people in your groups can see your expenses." }
+      ]
+    },
+    {
+      id: "omnispend",
+      name: "OmniSpend",
+      category: "Finance",
+      tagline: "Track your spending",
+      slogan: "Track every rupee. See where it goes.",
+      summary: "A colourful expense tracker with charts, budgets, and PDF and Excel reports.",
+      description: "Log an expense in a couple of taps, then see where your money went with charts for every day, week and month. Your data is saved on your phone and can sync to your account.",
+      status: "test",
+      playUrl: "https://play.google.com/apps/internaltest/4701130730664060638",
+      added: "2026-11-09",
+      tags: ["Charts & insights", "PDF + Excel reports", "Works offline"],
+      theme: {
+        bg: "radial-gradient(110% 90% at 100% 0%, #C9306F 0%, rgba(201,48,111,0) 55%), linear-gradient(135deg, #2238D0 0%, #5B26C9 60%, #3A1A8F 100%)",
+        fg: "#FFFFFF", muted: "#E4DEFF", accent: "#FFD54F", button: "linear-gradient(90deg, #FF8A00, #FF4D8D)"
+      },
+      info: [["Version", "1.0.0"], ["Requires", "Android 8.0+"], ["Price", "Free"], ["Category", "Finance"]],
+      links: [["Privacy policy", "omnispend/privacy-policy.html"], ["Delete your account", "omnispend/delete-account.html"]],
+      featuresTitle: "See every rupee, clearly.",
+      features: [
+        { icon: "plus", title: "Add in seconds", text: "A big ₹ amount field, category chips, Today or Yesterday, and a note. Tap any entry to edit it, or delete it with Undo." },
+        { icon: "tag", title: "Your own categories", text: "Start with 12 categories, or make your own with a name, emoji and colour, right from the add screen." },
+        { icon: "currency", title: "Made for rupees", text: "Amounts are exact to the paisa and shown the Indian way: ₹1,23,456.00, ₹3.2L or ₹1.1Cr." },
+        { icon: "home", title: "Home at a glance", text: "This month's total compared with the same point last month, an optional budget ring, and today, week and daily-average tiles." },
+        { icon: "chart", title: "Charts that explain", text: "A category donut, daily bars with your most expensive day highlighted, a spending calendar, weekday averages and 12-month trends." },
+        { icon: "file", title: "PDF and Excel reports", text: "Pick a period and categories, then export a PDF or Excel file to your phone's Downloads and share it." },
+        { icon: "calendar", title: "A full year of history", text: "History, insights and reports cover this month and the 11 months before it." },
+        { icon: "phone", title: "Works offline", text: "Your expenses are saved on your device, so the app keeps working without an internet connection." },
+        { icon: "cloud", title: "Your account, synced", text: "Sign in with Google or with email and a password. Sync when you choose, or turn on auto-sync after each change and daily." }
+      ]
+    }
+  ];
+
+  /* Hosted pages (freesyntra.com/omnispend/ etc.) carry <meta name="fs-route">; links then use real paths.
+     The single-page preview has no such tag and uses #hash links. */
+  var STATIC = document.querySelector('meta[name="fs-route"]');
+  var STATIC_ROUTE = STATIC ? STATIC.getAttribute("content") : null;
+  function link(r) { return STATIC ? (r ? r + "/" : "./") : "#" + (r || ""); }
+
+  function el(html) { var t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstChild; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function tpl(id) { var t = document.getElementById(id); return t ? t.innerHTML : ""; }
+  function icon(app) { return tpl("icon-" + app.id); }
+  function statusHtml(app) {
+    if ((app.status === "live" || app.status === "test") && app.playUrl) {
+      return '<a class="btn primary" href="' + esc(app.playUrl) + '" target="_blank" rel="noopener">Get it on Google Play</a>' +
+        (app.status === "test" ? '<span class="pill">In testing</span><p class="test-note">The app is in early testing. The link works for invited testers.</p>' : '');
+    }
+    return '<span class="pill">Coming soon to Google Play</span>';
+  }
+  function cardHtml(app) {
+    return '<a class="app-card" href="' + link(app.id) + '">' +
+      '<div class="top"><div class="icon">' + icon(app) + '</div><div><h3>' + esc(app.name) + '</h3><div class="cat">' + esc(app.category) + ' · ' + esc(app.tagline) + '</div></div></div>' +
+      '<p>' + esc(app.summary) + '</p>' +
+      '<div class="foot">' + (app.status === "live" ? '<span class="pill">On Google Play</span>' : app.status === "test" ? '<span class="pill">In testing</span>' : '<span class="pill">Coming soon</span>') +
+      '<span class="more">View app <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>';
+  }
+  var NEXT_CARD = '<div class="app-card next"><div class="top"><div class="next-mark" aria-hidden="true">+</div><div><h3>Next app</h3><div class="cat">In the works</div></div></div><p>We\'re working on our next free app. It will appear here when it launches.</p></div>';
+
+  /* Home */
+  var shelf = document.getElementById("shelf-art");
+  var slots = Math.max(6, Math.ceil(APPS.length / 3) * 3);
+  var shelfHtml = "";
+  for (var i = 0; i < slots; i++) {
+    var a = APPS[i];
+    shelfHtml += a ? '<a class="tile" href="' + link(a.id) + '" aria-label="' + esc(a.name) + '">' + icon(a) + '</a>' : '<div class="tile empty" aria-hidden="true">+</div>';
+  }
+  if (shelf) shelf.innerHTML = shelfHtml + '<p class="shelf-cap">' + APPS.length + (APPS.length === 1 ? ' app' : ' apps') + ' so far. More on the way.</p>';
+
+  var latest = APPS.slice().sort(function (x, y) { return y.added < x.added ? -1 : 1; })[0];
+  var featuredEl = document.getElementById("featured");
+  if (featuredEl) featuredEl.innerHTML =
+    '<a class="featured" href="' + link(latest.id) + '"><div class="copy"><div class="app-id" style="margin-top:0"><div class="icon" style="width:72px;height:72px">' + icon(latest) + '</div><div><h3>' + esc(latest.name) + '</h3><p class="cat">' + esc(latest.category) + ' · ' + esc(latest.tagline) + '</p></div></div>' +
+    '<p>' + esc(latest.description) + '</p><div class="actions" style="margin-top:4px"><span class="btn primary">View ' + esc(latest.name) + '</span>' + (latest.status === "live" ? "" : latest.status === "test" ? '<span class="pill">In testing</span>' : '<span class="pill">Coming soon to Google Play</span>') + '</div></div>' +
+    '<div>' + (tpl("banner-" + latest.id) || tpl("screen-" + latest.id)) + '</div></a>';
+  var homeGrid = document.getElementById("home-grid");
+  if (homeGrid) homeGrid.innerHTML = APPS.slice(0, 5).map(cardHtml).join("") + NEXT_CARD;
+
+  /* Catalogue */
+  var cats = ["All"].concat(APPS.map(function (a) { return a.category; }).filter(function (c, i, arr) { return arr.indexOf(c) === i; }));
+  var current = "All";
+  var chips = document.getElementById("chips");
+  if (chips) chips.innerHTML = cats.map(function (c) { return '<button type="button" id="cat-' + c.toLowerCase().replace(/\W+/g, "-") + '" data-cat="' + esc(c) + '" aria-pressed="' + (c === current) + '">' + esc(c) + '</button>'; }).join("");
+  function renderCatalogue() {
+    var list = APPS.filter(function (a) { return current === "All" || a.category === current; });
+    document.getElementById("catalogue").innerHTML = list.map(cardHtml).join("") + (current === "All" ? NEXT_CARD : "");
+    document.getElementById("count").textContent = list.length + (list.length === 1 ? " app" : " apps");
+    chips.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.cat === current ? "true" : "false"); });
+  }
+  if (chips) {
+    chips.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) { current = b.dataset.cat; renderCatalogue(); } });
+    renderCatalogue();
+  }
+
+  /* Detail */
+  function renderDetail(app) {
+    document.getElementById("d-icon").innerHTML = icon(app);
+    document.getElementById("d-name").textContent = app.name;
+    document.getElementById("d-cat").textContent = app.category + " · " + app.tagline + " · Android";
+    document.getElementById("d-desc").textContent = app.description;
+    document.getElementById("d-slogan").textContent = app.slogan || "";
+    var hero = document.getElementById("d-hero"), th = app.theme || {};
+    ["bg", "fg", "muted", "accent", "button"].forEach(function (k) { if (th[k]) hero.style.setProperty("--app-" + k, th[k]); else hero.style.removeProperty("--app-" + k); });
+    var gal = tpl("gallery-" + app.id);
+    document.getElementById("d-gallery").innerHTML = gal;
+    document.getElementById("d-gallery-band").hidden = !gal;
+    document.getElementById("d-info").innerHTML = (app.info || []).map(function (r) { return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>"; }).join("");
+    document.getElementById("d-links").innerHTML = (app.links || []).map(function (l) { return '<a class="btn ghost" href="' + esc(l[1]) + '">' + esc(l[0]) + '</a>'; }).join("");
+    document.getElementById("d-actions").innerHTML = statusHtml(app);
+    document.getElementById("d-tags").innerHTML = app.tags.map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
+    document.getElementById("d-screen").innerHTML = tpl("screen-" + app.id) ||
+      '<div class="phone-stage"><div class="tile" style="width:min(220px,100%)">' + icon(app) + '</div></div>';
+    document.getElementById("d-feat-title").textContent = app.featuresTitle || ("What " + app.name + " does");
+    document.getElementById("d-features").innerHTML = app.features.map(function (f) {
+      return '<li><h4><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[f.icon] || ICONS.list) + '</svg>' + esc(f.title) + '</h4><p>' + esc(f.text) + '</p></li>';
+    }).join("");
+    var extra = document.getElementById("d-extra");
+    extra.innerHTML = tpl("extra-" + app.id);
+    if (app.id === "omnisplit") setupSplitDemo(extra);
+    var others = APPS.filter(function (a) { return a.id !== app.id; });
+    document.getElementById("d-others").innerHTML = others.slice(0, 2).map(cardHtml).join("") + NEXT_CARD;
+    if (!STATIC) document.title = app.name + " · FreeSyntra";
+  }
+
+  function setupSplitDemo(root) {
+    var TOTAL = 1200;
+    var people = [{ name: "Asha", init: "A", color: "#2F5BEA" }, { name: "Ravi", init: "R", color: "#0B7A55" }, { name: "Meera", init: "M", color: "#B4361B" }];
+    var modes = {
+      equal: { title: "Equally", inputs: [1, 1, 1], rule: function () { return "1 of 3 equal parts"; }, text: "Everyone pays the same. ₹1,200 between three people is ₹400 each." },
+      exact: { title: "By exact amounts", inputs: [500, 450, 250], rule: function (v) { return "Entered ₹" + v; }, text: "Type in what each person had. OmniSplit checks that the amounts add up to the bill." },
+      percent: { title: "By percentage", inputs: [50, 30, 20], rule: function (v) { return v + "% of the bill"; }, text: "Give each person a percentage. The percentages must add up to 100." },
+      shares: { title: "By shares", inputs: [2, 1, 1], rule: function (v) { return v + (v === 1 ? " share" : " shares") + " of 4"; }, text: "Handy when someone ordered for two. 2 + 1 + 1 shares makes 4, so one share is ₹300." }
+    };
+    var fmt = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", minimumFractionDigits: 2 });
+    var list = root.querySelector("[data-people]");
+    function render(mode) {
+      var m = modes[mode], v = m.inputs, sum = v.reduce(function (a, b) { return a + b; }, 0);
+      var amts = mode === "exact" ? v.slice() : v.map(function (x) { return Math.round(TOTAL * x / sum * 100) / 100; });
+      var max = Math.max.apply(null, amts);
+      list.innerHTML = people.map(function (p, i) {
+        return '<li><div class="av" style="background:' + p.color + '">' + p.init + '</div><div><div style="display:flex;justify-content:space-between;gap:8px"><b>' + p.name + '</b><span class="rule">' + m.rule(v[i]) + '</span></div><div class="bar"><i style="width:' + (amts[i] / max * 100) + '%"></i></div></div><span class="val">' + fmt.format(amts[i]) + '</span></li>';
+      }).join("");
+      root.querySelector("[data-mode-title]").textContent = m.title;
+      root.querySelector("[data-mode-text]").textContent = m.text;
+      root.querySelectorAll(".modes button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.mode === mode ? "true" : "false"); });
+    }
+    root.querySelectorAll(".modes button").forEach(function (b) { b.addEventListener("click", function () { render(b.dataset.mode); }); });
+    render("equal");
+  }
+
+  /* Router: #apps, #about, #<app id>, otherwise home */
+  var views = document.querySelectorAll("[data-view]");
+  var lastKey = null;
+  function route() {
+    // On a real page, an old #link (e.g. freesyntra.com/#omnispend) forwards to that page's own address.
+    if (STATIC && location.hash) {
+      var want = location.hash.slice(1);
+      var known = want === "" || want === "apps" || want === "about" || APPS.some(function (a) { return a.id === want; });
+      if (known && want !== STATIC_ROUTE) { location.replace(link(want)); return; }
+    }
+    var h = (STATIC && !location.hash) ? STATIC_ROUTE : (location.hash || "").slice(1);
+    var app = APPS.filter(function (a) { return a.id === h; })[0];
+    var view = app ? "detail" : (h === "apps" || h === "about" ? h : "home");
+    var key = view + ":" + (app ? app.id : "");
+    if (key === lastKey) return;
+    lastKey = key;
+    if (app) renderDetail(app); else if (!STATIC) document.title = view === "apps" ? "Apps · FreeSyntra" : view === "about" ? "About · FreeSyntra" : "FreeSyntra";
+    views.forEach(function (v) { v.hidden = v.dataset.view !== view; });
+    document.querySelectorAll("[data-nav]").forEach(function (a) {
+      var on = a.dataset.nav === view || (view === "detail" && a.dataset.nav === "apps");
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+    if (lastKey !== null && first) { first = false; } else { window.scrollTo(0, 0); }
+  }
+  var first = true;
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>
+
+
+
+</body></html>

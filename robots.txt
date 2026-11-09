@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /logo/design-boards/
+
+Sitemap: https://freesyntra.com/sitemap.xml

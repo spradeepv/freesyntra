@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OmniTrace Privacy Policy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="OmniTrace, an alphabet tracing app for kids aged 3+ by FreeSyntra, collects no personal information. No ads, no sign-in, no internet.">
+<link rel="icon" type="image/svg+xml" href="../logo/svg/favicon.svg">
+<link rel="alternate icon" href="../logo/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../logo/png/freesyntra-app-icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Instrument+Sans:wght@400;600&display=swap">
+<style>
+:root {
+  --bg: #F4F5F8; --surface: #FFFFFF; --ink: #121826; --muted: #4A5163; --line: #DCE0E8;
+  --accent: #2F5BEA; --accent-soft: #E6ECFD; --warn-soft: #FFF4E0; --warn-ink: #7A4B00;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1220; --surface: #161C2C; --ink: #EEF1F7; --muted: #A5ADBF; --line: #2A3247;
+    --accent: #8FA8FF; --accent-soft: #1D2747; --warn-soft: #3A2C10; --warn-ink: #FFD99A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1220; --surface: #161C2C; --ink: #EEF1F7; --muted: #A5ADBF; --line: #2A3247;
+  --accent: #8FA8FF; --accent-soft: #1D2747; --warn-soft: #3A2C10; --warn-ink: #FFD99A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.site { border-bottom: 1px solid var(--line); background: var(--bg); }
+header.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; max-width: 1160px; }
+.brand { color: var(--ink); display: inline-flex; }
+.brand svg { height: 32px; width: auto; display: block; }
+.dot { fill: var(--accent); }
+header.site nav { display: flex; gap: 4px; flex-wrap: wrap; }
+header.site nav a { color: var(--muted); text-decoration: none; padding: 10px 12px; border-radius: 10px; font-weight: 500; font-size: 15px; }
+header.site nav a:hover { color: var(--ink); background: var(--surface); }
+main { padding-block: 48px 72px; }
+.app-line { display: flex; align-items: center; gap: 10px; color: var(--muted); font-weight: 600; font-size: 15px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance; }
+h1 { font-size: clamp(34px, 5vw, 50px); margin: 10px 0 8px; }
+h2 { font-size: 26px; margin: 48px 0 12px; padding-top: 8px; scroll-margin-top: 16px; }
+h3 { font-size: 19px; margin: 24px 0 6px; }
+p, li { max-width: 68ch; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.meta { color: var(--muted); font-size: 15px; margin: 0; }
+.summary { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 8px 26px 14px; margin-top: 32px; }
+.summary h2 { margin-top: 18px; font-size: 21px; }
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 26px; margin-top: 24px; }
+.toc ol { margin: 8px 0 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+.toc li { break-inside: avoid; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; margin-top: 12px; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; background: var(--surface); font-size: 16px; }
+th, td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--font-display); font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+.callout { background: var(--accent-soft); border-radius: 16px; padding: 18px 22px; margin-top: 20px; }
+.callout.warn { background: var(--warn-soft); color: var(--warn-ink); }
+.callout p { margin: 0; }
+.steps { counter-reset: s; list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; max-width: none; }
+.steps li::before { content: counter(s); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; font-weight: 700; font-family: var(--font-display); }
+.email { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin-top: 14px; }
+.email code { font-size: 17px; font-family: ui-monospace, "Cascadia Mono", monospace; user-select: all; overflow-wrap: anywhere; }
+.btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 12px; background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; border: 0; font: 600 15px var(--font-body); cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 4px 22px 14px; min-width: 0; }
+.card h3 { margin-top: 18px; }
+.card ul { padding-left: 20px; margin: 8px 0; }
+footer { border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-block: 28px; color: var(--muted); font-size: 14px; max-width: 1160px; }
+footer a { color: var(--muted); }
+@media (max-width: 640px) { .toc ol { columns: 1; } .cols { grid-template-columns: minmax(0, 1fr); } h2 { font-size: 23px; } }
+</style>
+<link rel="canonical" href="https://freesyntra.com/omnitrace/privacy-policy.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="FreeSyntra">
+<meta property="og:title" content="OmniTrace Privacy Policy">
+<meta property="og:description" content="OmniTrace, an alphabet tracing app for kids aged 3+ by FreeSyntra, collects no personal information. No ads, no sign-in, no internet.">
+<meta property="og:url" content="https://freesyntra.com/omnitrace/privacy-policy.html">
+<meta property="og:image" content="https://freesyntra.com/omnitrace/images/og.jpg">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../" aria-label="FreeSyntra home"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 273.48 64">
+  <path d="M52 18 A24 24 0 1 0 54 40" fill="none" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="55.5" cy="29" r="3.6" class="dot"/>
+  <path d="M29.79296875 26.8984375H27.05078125V26.0078125C27.05078125 25.09375 27.44921875 24.5546875 28.515625 24.5546875C28.97265625 24.5546875 29.39453125 24.6484375 29.6875 24.73046875L30.3203125 22.08203125C29.88671875 21.953125 28.90234375 21.71875 27.80078125 21.71875C25.375 21.71875 23.546875 23.1015625 23.546875 25.890625V26.8984375H21.23828125V29.58203125H23.546875V40.0H27.05078125V29.58203125H29.79296875ZM36.2578125 40.2578125C39.69140625 40.2578125 42.1171875 38.53515625 42.1171875 35.95703125C42.1171875 34.09375 40.8984375 32.93359375 38.3671875 32.41796875L36.01171875 31.94921875C34.76953125 31.69140625 34.32421875 31.234375 34.32421875 30.578125C34.32421875 29.79296875 35.21484375 29.25390625 36.36328125 29.25390625C37.640625 29.25390625 38.37890625 29.88671875 38.66015625 30.77734375L41.77734375 30.2265625C41.28515625 28.09375 39.421875 26.734375 36.31640625 26.734375C33.0 26.734375 30.80859375 28.28125 30.80859375 30.80078125C30.80859375 32.7578125 32.05078125 34.0 34.58203125 34.515625L36.84375 34.984375C37.9921875 35.21875 38.53125 35.640625 38.53125 36.33203125C38.53125 37.1171875 37.69921875 37.6796875 36.36328125 37.6796875C34.921875 37.6796875 34.078125 37.08203125 33.73828125 35.8515625L30.46875 36.4140625C30.92578125 38.8515625 33.09375 40.2578125 36.2578125 40.2578125Z" fill="currentColor"/>
+  <path d="M78.458203125 46.259765625H82.822265625V34.392578125H94.919140625V30.66015625H82.822265625V21.491796875H96.2015625V17.740234374999996H78.458203125ZM99.863546875 46.259765625H104.074484375V33.26328125C104.074484375 30.449609375 106.218234375 28.458984375 109.165890625 28.458984375C110.046359375 28.458984375 111.0608125 28.612109375 111.3670625 28.688671874999997V24.669140624999997C110.926828125 24.611718749999998 110.122921875 24.554296875 109.586984375 24.554296875C107.0795625 24.554296875 104.95495312499999 25.970703125 104.1701875 28.305859374999997H103.9405V24.860546874999997H99.863546875ZM122.87670312499999 46.7C127.4513125 46.7 130.724359375 44.460546875 131.7388125 41.130078125L127.776703125 40.1921875C127.03021874999999 42.1828125 125.26928124999999 43.21640625 122.91498437499999 43.21640625C119.41225 43.21640625 117.03881249999999 40.976953125 116.88568749999999 36.842578125H132.064203125V35.349609375C132.064203125 27.635937499999997 127.393890625 24.592578125 122.51303125 24.592578125C116.522015625 24.592578125 112.655609375 29.12890625 112.655609375 35.71328125C112.655609375 42.355078125 116.56029687499999 46.7 122.87670312499999 46.7ZM116.904828125 33.703515625C117.13451562499999 30.621875 119.163421875 28.076171875 122.53217187499999 28.076171875C125.7669375 28.076171875 127.585296875 30.334765625 127.89154687499999 33.703515625ZM144.53087499999998 46.7C149.10548437499997 46.7 152.37853124999998 44.460546875 153.39298437499997 41.130078125L149.430875 40.1921875C148.684390625 42.1828125 146.92345312499998 43.21640625 144.56915625 43.21640625C141.06642187499997 43.21640625 138.69298437499998 40.976953125 138.539859375 36.842578125H153.71837499999998V35.349609375C153.71837499999998 27.635937499999997 149.0480625 24.592578125 144.167203125 24.592578125C138.17618749999997 24.592578125 134.30978125 29.12890625 134.30978125 35.71328125C134.30978125 42.355078125 138.21446874999998 46.7 144.53087499999998 46.7ZM138.55899999999997 33.703515625C138.78868749999998 30.621875 140.81759375 28.076171875 144.18634375 28.076171875C147.421109375 28.076171875 149.23946875 30.334765625 149.54571875 33.703515625ZM166.85496874999998 46.73828125C173.55418749999998 46.73828125 177.42059375 43.21640625 177.42059375 38.373828125C177.42059375 33.225 172.845984375 31.272656249999997 169.20926562499997 30.334765625L166.43387499999997 29.607421875C164.25184374999998 29.033203125 161.30418749999998 28.018749999999997 161.30418749999998 25.319921875C161.30418749999998 22.908203125 163.48621874999998 21.147265625 166.95067187499998 21.147265625C170.18543749999998 21.147265625 172.50145312499998 22.640234375 172.78856249999998 25.243359374999997H177.03778125C176.90379687499998 20.707031249999996 172.90340625 17.357421874999996 167.04637499999998 17.357421874999996C161.30418749999998 17.357421874999996 156.940125 20.63046875 156.940125 25.568749999999998C156.940125 29.4734375 159.696375 31.866015625 164.36668749999998 33.11015625L167.69715624999998 34.02890625C170.75965624999998 34.851953125 173.113953125 35.828125 173.113953125 38.31640625C173.113953125 41.07265625 170.45340625 42.91015625 166.83582812499998 42.91015625C163.543640625 42.91015625 160.78739062499997 41.45546875 160.53856249999998 38.335546875H156.155359375C156.42332812499998 43.541796875 160.44285937499998 46.73828125 166.85496874999998 46.73828125ZM180.62320312499997 53.954296875C181.14 54.183984375 182.25015624999997 54.413671875 183.570859375 54.413671875C187.016171875 54.413671875 189.14078124999997 52.652734375 190.44234375 49.2265625L199.7446875 24.860546874999997H195.2275L190.920859375 37.01484375C190.2509375 38.871484375 189.772421875 40.728125 189.29390625 42.565625C188.83453125 40.728125 188.39429687499998 38.890625 187.743515625 37.01484375L183.51343749999998 24.860546874999997H178.95796875L187.092734375 46.35546875L186.633359375 47.925C185.84859375 50.68125 184.31734375 51.2171875 182.1353125 50.64296875L181.656796875 50.528125ZM206.29690624999998 33.588671875C206.29690624999998 30.20078125 208.40237499999998 28.267578125 211.27346874999998 28.267578125C214.06799999999998 28.267578125 215.79065624999998 30.105078125 215.79065624999998 33.18671875V46.259765625H220.00159374999998V32.669921875C220.00159374999998 27.387109374999998 217.09221875 24.592578125 212.72815624999998 24.592578125C209.7039375 24.592578125 207.46448437499998 25.951562499999998 206.12464062499998 28.975781249999997L206.10549999999998 24.860546874999997H202.08596874999998V46.259765625H206.29690624999998ZM233.4444375 24.860546874999997H229.17607812499998V19.769140625H224.96514062499998V24.860546874999997H221.84521875V28.28671875H224.96514062499998V40.823828125C224.96514062499998 44.460546875 227.20459375 46.546875 231.09014062499998 46.546875C232.06631249999998 46.546875 233.1381875 46.412890625 234.037796875 46.106640625L233.29131249999998 42.737890625C232.774515625 42.852734375 231.95146874999998 42.967578125 231.511234375 42.967578125C229.84599999999998 42.967578125 229.17607812499998 42.201953125 229.17607812499998 40.479296875V28.28671875H233.4444375ZM236.26423437499997 46.259765625H240.47517187499997V33.26328125C240.47517187499997 30.449609375 242.61892187499998 28.458984375 245.56657812499998 28.458984375C246.44704687499998 28.458984375 247.46149999999997 28.612109375 247.76774999999998 28.688671874999997V24.669140624999997C247.327515625 24.611718749999998 246.52360937499998 24.554296875 245.987671875 24.554296875C243.48024999999998 24.554296875 241.35564062499998 25.970703125 240.57087499999997 28.305859374999997H240.3411875V24.860546874999997H236.26423437499997ZM256.042625 46.73828125C259.50707812499996 46.73828125 261.535984375 44.996484375 262.35903125 43.33125H262.56957812499996V46.259765625H266.64653124999995V32.057421875C266.64653124999995 25.875 261.727390625 24.592578125 258.282078125 24.592578125C254.47309374999998 24.592578125 250.87465625 26.085546875 249.41996874999998 29.913671875L253.382078125 30.947265625C253.97543749999997 29.492578124999998 255.54496874999998 28.018749999999997 258.3395 28.018749999999997C261.0191875 28.018749999999997 262.43559375 29.396874999999998 262.43559375 31.7703125V31.88515625C262.43559375 33.397265625 260.808640625 33.378125 257.0379375 33.818359375C252.999265625 34.277734375 248.80746874999997 35.349609375 248.80746874999997 40.211328125C248.80746874999997 44.422265625 251.96567187499997 46.73828125 256.042625 46.73828125ZM256.98051562499995 43.350390625C254.62621875 43.350390625 252.94184374999998 42.29765625 252.94184374999998 40.26875C252.94184374999998 38.067578125 254.8941875 37.263671875 257.26762499999995 36.93828125C258.5691875 36.766015625 261.82309375 36.421484375 262.454734375 35.808984375V38.54609375C262.454734375 41.053515625 260.4066875 43.350390625 256.98051562499995 43.350390625Z" fill="currentColor"/>
+</svg></a>
+  <nav aria-label="Main"><a href="../omnitrace/">OmniTrace</a><a href="../apps/">All apps</a></nav>
+</div></header>
+<main><div class="wrap">
+
+<p class="app-line">OmniTrace · Android app by FreeSyntra</p>
+<h1>OmniTrace Privacy Policy</h1>
+<p class="meta">Last updated: 14 November 2026</p>
+<p>This Privacy Policy explains how OmniTrace, an alphabet tracing app for children aged 3 and up, developed by FreeSyntra ("we", "us"), handles information. The short version: <strong>OmniTrace does not collect, store or share any personal information.</strong></p>
+
+<div class="summary">
+<h2 id="summary">In short</h2>
+<ul>
+  <li>No sign-in or account. Children never type in their name, email or any other personal details.</li>
+  <li>We do not collect any data. OmniTrace does not connect to the internet and asks for no permissions.</li>
+  <li>No ads, no in-app purchases, and no advertising, analytics or tracking tools.</li>
+  <li>Stars and settings are saved only on your device.</li>
+</ul>
+</div>
+
+<h2 id="collect">Information we collect</h2>
+<p>None. OmniTrace does not ask for, collect or send any personal information. It has no internet permission, so it cannot send anything off the device, and it asks for no other permissions either. We do not use cookies, advertising IDs, analytics or crash-reporting services.</p>
+
+<h2 id="device">What the app saves on your device</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th scope="col">What</th><th scope="col">Details</th><th scope="col">Where it's kept</th></tr></thead>
+  <tbody>
+    <tr><td>Stars</td><td>The best number of stars earned for each letter, so progress is shown on the home screen.</td><td>The app's private storage on your device</td></tr>
+    <tr><td>Settings</td><td>Whether sound is on or off.</td><td>The app's private storage on your device</td></tr>
+  </tbody>
+</table></div>
+<p>The app does not save drawings, photos or recordings.</p>
+
+<h2 id="speech">Speaking letters out loud</h2>
+<p>OmniTrace reads letters and words aloud (for example "A is for apple") using the text-to-speech service built into your phone. The app only passes that fixed text to the phone's speech service; it never records or listens to your child, and it does not use the microphone. The speech service itself is part of your phone's software and is managed in your phone's settings. You can turn sound off on the app's home screen.</p>
+
+<h2 id="backup">Your phone's own backup</h2>
+<p>If Android backup is turned on for your Google account, Android may include OmniTrace's stars and settings in that backup, which Google stores in your Google account. This is controlled by you in your phone's settings, not by us.</p>
+
+<h2 id="children">Children's privacy</h2>
+<p>OmniTrace is designed for children aged 3 and up. Because the app collects no personal information from anyone, it collects none from children. It has no ads, no chat, no links to websites or social media inside the app, and no in-app purchases. We follow Google Play's Families policy. Parents and guardians are welcome to <a href="#contact">contact us</a> with any questions.</p>
+
+<h2 id="delete">Deleting data</h2>
+<p>All data is on your device, so you control it. To remove stars and settings, go to your phone's <strong>Settings → Apps → OmniTrace → Storage</strong> and tap <strong>Clear storage</strong>, or uninstall the app. We hold no data about you on any server, so there is nothing for us to delete.</p>
+
+<h2 id="changes">Changes to this policy</h2>
+<p>If OmniTrace ever changes how it handles information, we will update this policy and change the "Last updated" date at the top before the change takes effect.</p>
+
+<h2 id="contact">Contact us</h2>
+<p>For questions, requests or complaints about privacy, including grievances, contact the developer:</p>
+<p><strong>FreeSyntra</strong><br>Location: India</p>
+<div class="email"><code>freesyntra@gmail.com</code><a class="btn" href="mailto:freesyntra@gmail.com">Write an email</a><button type="button" class="btn ghost" data-copy="freesyntra@gmail.com">Copy address</button></div>
+
+
+</div></main>
+<footer><div class="wrap">
+  <span>OmniTrace by FreeSyntra · India</span>
+  <span><a href="../omnitrace/">About OmniTrace</a> · <a href="../">FreeSyntra home</a></span>
+</div></footer>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.getAttribute('data-copy');
+    function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy address'; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(done, function () { select(b); });
+    } else { select(b); }
+  });
+});
+function select(b) { var c = b.parentNode.querySelector('code'); var r = document.createRange(); r.selectNodeContents(c); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+</script>
+</body>
+</html>

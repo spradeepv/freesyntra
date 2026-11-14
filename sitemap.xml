@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://freesyntra.com/</loc><lastmod>2026-11-09</lastmod><priority>1.0</priority></url>
-  <url><loc>https://freesyntra.com/apps/</loc><lastmod>2026-11-09</lastmod><priority>0.9</priority></url>
-  <url><loc>https://freesyntra.com/about/</loc><lastmod>2026-11-09</lastmod><priority>0.6</priority></url>
-  <url><loc>https://freesyntra.com/omnisplit/</loc><lastmod>2026-11-09</lastmod><priority>0.9</priority></url>
-  <url><loc>https://freesyntra.com/omnispend/</loc><lastmod>2026-11-09</lastmod><priority>0.9</priority></url>
-  <url><loc>https://freesyntra.com/omnicolor/</loc><lastmod>2026-11-09</lastmod><priority>0.9</priority></url>
-  <url><loc>https://freesyntra.com/omnisplit/privacy-policy.html</loc><lastmod>2026-11-09</lastmod><priority>0.3</priority></url>
-  <url><loc>https://freesyntra.com/omnisplit/delete-account.html</loc><lastmod>2026-11-09</lastmod><priority>0.3</priority></url>
-  <url><loc>https://freesyntra.com/omnispend/privacy-policy.html</loc><lastmod>2026-11-09</lastmod><priority>0.3</priority></url>
-  <url><loc>https://freesyntra.com/omnispend/delete-account.html</loc><lastmod>2026-11-09</lastmod><priority>0.3</priority></url>
-  <url><loc>https://freesyntra.com/omnicolor/privacy-policy.html</loc><lastmod>2026-11-09</lastmod><priority>0.3</priority></url>
+  <url><loc>https://freesyntra.com/</loc><lastmod>2026-11-14</lastmod><priority>1.0</priority></url>
+  <url><loc>https://freesyntra.com/apps/</loc><lastmod>2026-11-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://freesyntra.com/about/</loc><lastmod>2026-11-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://freesyntra.com/omnisplit/</loc><lastmod>2026-11-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://freesyntra.com/omnispend/</loc><lastmod>2026-11-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://freesyntra.com/omnicolor/</loc><lastmod>2026-11-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://freesyntra.com/omnitrace/</loc><lastmod>2026-11-14</lastmod><priority>0.9</priority></url>
+  <url><loc>https://freesyntra.com/omnisplit/privacy-policy.html</loc><lastmod>2026-11-14</lastmod><priority>0.3</priority></url>
+  <url><loc>https://freesyntra.com/omnisplit/delete-account.html</loc><lastmod>2026-11-14</lastmod><priority>0.3</priority></url>
+  <url><loc>https://freesyntra.com/omnispend/privacy-policy.html</loc><lastmod>2026-11-14</lastmod><priority>0.3</priority></url>
+  <url><loc>https://freesyntra.com/omnispend/delete-account.html</loc><lastmod>2026-11-14</lastmod><priority>0.3</priority></url>
+  <url><loc>https://freesyntra.com/omnicolor/privacy-policy.html</loc><lastmod>2026-11-14</lastmod><priority>0.3</priority></url>
+  <url><loc>https://freesyntra.com/omnitrace/privacy-policy.html</loc><lastmod>2026-11-14</lastmod><priority>0.3</priority></url>
 </urlset>

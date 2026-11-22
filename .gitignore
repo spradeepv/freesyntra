@@ -1,0 +1,9 @@
+# Never upload private keys or signing keys
+y
+y.pub
+id_*
+*.pem
+*.key
+*.jks
+*.keystore
+*-keystore

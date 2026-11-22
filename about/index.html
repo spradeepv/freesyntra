@@ -355,7 +355,7 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
           <p class="eyebrow">About FreeSyntra</p>
           <h1>Useful apps, free for everyone.</h1>
           <p>FreeSyntra is an independent maker of Android apps, based in India. Each app does one job well, and every one of them is free to download from Google Play.</p>
-          <p>Our apps so far are OmniSplit, for splitting shared expenses, OmniSpend, for tracking your own spending, OmniColor, a coloring app for young children, and OmniTrace, which teaches children to write the alphabet. New apps are added to the Apps page as they launch.</p>
+          <p>Our apps so far are OmniSplit, for splitting shared expenses, OmniSpend, for tracking your own spending, OmniColor, a coloring app for young children, OmniTrace, which teaches children to write the alphabet, and OmniGlobe, a talking world globe. New apps are added to the Apps page as they launch.</p>
           <div class="actions" style="margin-top: 8px"><a class="btn primary" href="apps/">Browse apps</a></div>
         </div>
       </div>
@@ -571,6 +571,42 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
   </section>
 </template>
 
+<template id="icon-omniglobe"><img src="omniglobe/images/icon.webp" alt="" width="256" height="256"></template>
+
+<template id="screen-omniglobe">
+  <div class="phone-stage">
+    <div class="phone"><div class="screen"><img class="shot" src="omniglobe/images/home.webp" alt="OmniGlobe showing Asia on the globe with country names, and a card saying Asia, continent, 56 countries and territories" width="540" height="1054"></div></div>
+  </div>
+</template>
+
+<template id="banner-omniglobe"><img class="banner" src="omniglobe/images/feature.webp" alt="OmniGlobe: Spin. Tap. Hear the world! Continents, countries, states and cities with every name spoken out loud. 248 countries, capitals, offline, free." width="1024" height="500"></template>
+
+<template id="gallery-omniglobe">
+  <li><img src="omniglobe/images/shot-1.webp" alt="Spin the whole world: drag, flick and pinch a colourful globe" width="540" height="960" loading="lazy"></li>
+  <li><img src="omniglobe/images/shot-2.webp" alt="Tap to explore: every place name spoken out loud" width="540" height="960" loading="lazy"></li>
+  <li><img src="omniglobe/images/shot-3.webp" alt="Every country: states, union territories and capitals" width="540" height="960" loading="lazy"></li>
+  <li><img src="omniglobe/images/shot-4.webp" alt="Zoom into any state: capitals and major cities" width="540" height="960" loading="lazy"></li>
+  <li><img src="omniglobe/images/shot-5.webp" alt="Find any place fast: search countries, states and cities" width="540" height="960" loading="lazy"></li>
+  <li><img src="omniglobe/images/shot-6.webp" alt="Just the way you like: slower voice, names, grid lines and more" width="540" height="960" loading="lazy"></li>
+</template>
+
+<template id="extra-omniglobe">
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">About the map</p>
+        <h2>Where the map comes from.</h2>
+        <p>Everything OmniGlobe shows is built into the app, so it works anywhere, even without a connection.</p>
+      </div>
+      <ul class="features">
+        <li><h4>Natural Earth data</h4><p>Country, state and city outlines come from Natural Earth, a free public-domain map collection, at its most detailed scale.</p></li>
+        <li><h4>India's official borders</h4><p>India's borders, including Jammu &amp; Kashmir, Ladakh and Arunachal Pradesh, are shown as per the Government of India's map.</p></li>
+        <li><h4>Regions for some countries</h4><p>Countries with very many small units are grouped into their main regions, for example England, Scotland, Wales and Northern Ireland for the UK.</p></li>
+      </ul>
+    </div>
+  </section>
+</template>
+
 <template id="extra-omnisplit">
   <section class="band">
     <div class="wrap">
@@ -633,7 +669,13 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
     lines: '<path d="M3 5h18M3 15h18"/><path d="M3 10h2M8 10h2M13 10h2M18 10h3"/><path d="M3 20h18"/>',
     hand: '<path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12M11 11.5v-2a1.5 1.5 0 0 1 3 0V12M14 11a1.5 1.5 0 0 1 3 0v2M17 12.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-7 7h-1a7 7 0 0 1-5.6-2.8L3.6 16a1.6 1.6 0 0 1 2.5-2L8 15.5"/>',
     eyeoff: '<path d="M2 12s3.6-7 10-7c1.6 0 3 .4 4.3 1M22 12s-3.6 7-10 7c-1.6 0-3-.4-4.3-1"/><path d="M3 3l18 18"/>',
-    sound: '<path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>'
+    sound: '<path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    layers: '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+    flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+    city: '<path d="M3 21h18M5 21V9l5-3v15M10 21V4l9 4v13"/><path d="M13 10h3M13 14h3M13 18h3"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/>',
+    sliders: '<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/>'
   };
 
   /* ===== The app list. Add new apps here. =====
@@ -761,6 +803,37 @@ footer nav a { min-height: 40px; padding: 0 10px; font-size: 14px; }
         { icon: "sound", title: "Says every letter", text: "Hear the letter and its word, like \u201cA is for apple\u201d. Sound can be turned off on the home screen." },
         { icon: "palette", title: "Six crayon colors", text: "Pick a crayon, start over any time, hear the letter again, and move to the previous or next letter." },
         { icon: "shield", title: "Safe for kids", text: "No sign-in, no ads and no internet needed. Progress stays on the phone." }
+      ]
+    },
+    {
+      id: "omniglobe",
+      name: "OmniGlobe",
+      category: "Education",
+      tagline: "A talking world globe",
+      slogan: "Spin. Tap. Hear the world!",
+      summary: "Spin a colourful 3D globe and tap any continent, country, state or city to hear its name. 248 countries, works offline.",
+      description: "Spin the globe, then tap to go deeper: continent, country, state and city. OmniGlobe flies to each place, shows its capital and major cities, and says every name out loud. No ads, no sign-in, and no internet needed.",
+      status: "soon",
+      playUrl: "",
+      added: "2026-11-22",
+      tags: ["248 countries", "Names spoken", "Works offline"],
+      theme: {
+        bg: "radial-gradient(70% 80% at 100% 0%, #1F3A7A 0%, rgba(31,58,122,0) 60%), radial-gradient(50% 60% at 0% 100%, #3B2A6E 0%, rgba(59,42,110,0) 60%), #0B1633",
+        fg: "#FFFFFF", muted: "#C9D4F0", accent: "#FFC21A", button: "linear-gradient(90deg, #FFB000, #FF8A00)"
+      },
+      info: [["Version", "1.0.0"], ["Requires", "Android 7.0+"], ["Price", "Free"], ["Category", "Education"]],
+      links: [["Privacy policy", "omniglobe/privacy-policy.html"]],
+      featuresTitle: "The whole world in your pocket.",
+      features: [
+        { icon: "globe", title: "Spin the whole world", text: "Drag to spin, flick to keep it turning, and pinch or tap + and \u2212 to zoom. It turns slowly by itself on the world view." },
+        { icon: "layers", title: "Tap to explore", text: "Go one level deeper with each tap: continent, country, state, city. The globe flies there and outlines the place." },
+        { icon: "flag", title: "248 countries and territories", text: "Every country with its capital and how it's divided, such as \u201c28 states, 8 union territories\u201d." },
+        { icon: "city", title: "States and major cities", text: "Every state, province or region with its capital, plus up to eight of its biggest cities." },
+        { icon: "sound", title: "Every name spoken", text: "Each place's name is said out loud when you tap it, using an Indian English voice when one is installed. A slower voice is available." },
+        { icon: "search", title: "Find any place fast", text: "Search for any continent, country, state or city by name. Accents don't matter, so \u201creykjavik\u201d works." },
+        { icon: "palette", title: "Colourful by continent", text: "Each continent has its own colour family, countries are shades of it, and neighbours never share a colour." },
+        { icon: "sliders", title: "Just the way you like", text: "Turn names on the globe, latitude and longitude lines, spoken names and the idle spin on or off." },
+        { icon: "shield", title: "No ads, works offline", text: "No sign-in, no ads and no internet needed. All the maps are built into the app." }
       ]
     }
   ];
